@@ -7,9 +7,9 @@ import java.util.Date;
 @Entity
 public class Product {
 
+    //Fields
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
-    //Attributes
     private Long productId;
     private String productNaam;
     private String productBeschrijving;
