@@ -15,9 +15,9 @@ public class Product {
     private String productBeschrijving;
     private Integer aantalSpelers;
     private Boolean huurVerkoop;
-    private Date einddatum;
     private Double prijs;
-    private int stock;
+    private Integer stock;
+    private Integer stockHuurBeschikbaar;
 
     //OnToMany relations with other entities
     @OneToMany
@@ -28,8 +28,8 @@ public class Product {
     public Product() {
     }
 
-    public Product(Long productId, String productNaam, String productBeschrijving, Integer aantalSpelers, Boolean huurVerkoop,
-                   Double prijs, int stock, ProductCategorie productCategorie, BestellingProduct bestellingProduct) {
+    public Product(Long productId, String productNaam, String productBeschrijving, Integer aantalSpelers, Boolean huurVerkoop, Double prijs, Integer stock,
+                   ProductCategorie productCategorie, BestellingProduct bestellingProduct) {
         this.productId = productId;
         this.productNaam = productNaam;
         this.productBeschrijving = productBeschrijving;
@@ -62,10 +62,6 @@ public class Product {
 
     public void setHuurVerkoop(Boolean huurVerkoop) { this.huurVerkoop = huurVerkoop; }
 
-    public Date getEinddatum() { return einddatum; }
-
-    public void setEinddatum(Date einddatum) { this.einddatum = einddatum; }
-
     public Double getPrijs() { return prijs; }
 
     public void setPrijs(Double prijs) { this.prijs = prijs; }
@@ -81,4 +77,10 @@ public class Product {
     public BestellingProduct getBestellingProduct() { return bestellingProduct; }
 
     public void setBestellingProduct(BestellingProduct bestellingProduct) { this.bestellingProduct = bestellingProduct; }
+
+    public void setStock(Integer stock) { this.stock = stock; }
+
+    public Integer getStockHuurBeschikbaar() { return stockHuurBeschikbaar; }
+
+    public void setStockHuurBeschikbaar(Integer stockHuurBeschikbaar) { this.stockHuurBeschikbaar = stockHuurBeschikbaar; }
 }
