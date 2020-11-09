@@ -1,6 +1,7 @@
 package be.thomasmore.graduaten.artimis.entity;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class BestellingStatus {
@@ -10,17 +11,18 @@ public class BestellingStatus {
     private String bestellingStatusBeschrijving;
 
     @OneToMany
-    private Bestelling bestelling;
+    private List <Bestelling> bestelling;
 
     public BestellingStatus() {
     }
 
-    public BestellingStatus(Long bestellingStatusCode, String bestellingStatusBeschrijving) {
+    public BestellingStatus(Long bestellingStatusCode, String bestellingStatusBeschrijving, Bestelling bestelling) {
         this.bestellingStatusCode = bestellingStatusCode;
         this.bestellingStatusBeschrijving = bestellingStatusBeschrijving;
+        this.bestelling = (List<Bestelling>) bestelling;
     }
 
-    public int getBestellingStatusCode() {
+    public Long getBestellingStatusCode() {
         return bestellingStatusCode;
     }
 
@@ -34,6 +36,14 @@ public class BestellingStatus {
 
     public void setBestellingStatusBeschrijving(String bestellingStatusBeschrijving) {
         this.bestellingStatusBeschrijving = bestellingStatusBeschrijving;
+    }
+
+    public Bestelling getBestelling() {
+        return (Bestelling) bestelling;
+    }
+
+    public void setBestelling(Bestelling bestelling) {
+        this.bestelling = (List<Bestelling>) bestelling;
     }
 
     @Override

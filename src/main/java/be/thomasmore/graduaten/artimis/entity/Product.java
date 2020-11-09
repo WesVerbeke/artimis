@@ -2,7 +2,9 @@ package be.thomasmore.graduaten.artimis.entity;
 
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class Product {
@@ -20,26 +22,15 @@ public class Product {
     private Integer stockHuurBeschikbaar;
 
     //OnToMany relations with other entities
-    //@OneToMany
-    //private ProductCategorie productCategorie;
-    //private BestellingProduct bestellingProduct;
+    @OneToMany
+    private List<ProductCategorie> productCategorie;
+
+    @OneToMany
+    private List<BestellingProduct> bestellingProduct;
 
     //Constructors
     public Product() {
     }
-
-   // public Product(Long productId, String productNaam, String productBeschrijving, Integer aantalSpelers, Boolean huurVerkoop, Double prijs, Integer stock,
-    //               ProductCategorie productCategorie, BestellingProduct bestellingProduct) {
-    //    this.productId = productId;
-    //    this.productNaam = productNaam;
-    //    this.productBeschrijving = productBeschrijving;
-    //    this.aantalSpelers = aantalSpelers;
-    //    this.huurVerkoop = huurVerkoop;
-    //    this.prijs = prijs;
-    //    this.stock = stock;
-    //    this.productCategorie = productCategorie;
-    //    this.bestellingProduct = bestellingProduct;
-    //}
 
     public Product(Long productId, String productNaam, String productBeschrijving, Integer aantalSpelers, Boolean huurVerkoop, Double prijs, Integer stock,
                    ProductCategorie productCategorie, BestellingProduct bestellingProduct) {
@@ -50,10 +41,12 @@ public class Product {
         this.huurVerkoop = huurVerkoop;
         this.prijs = prijs;
         this.stock = stock;
+        this.productCategorie = (List<ProductCategorie>) productCategorie;
+        this.bestellingProduct = (List<BestellingProduct>) bestellingProduct;
     }
 
-
     //Getters & Setters
+
     public Long getProductId() { return productId; }
 
     public void setProductId(Long productId) { this.productId = productId; }
@@ -78,21 +71,19 @@ public class Product {
 
     public void setPrijs(Double prijs) { this.prijs = prijs; }
 
-    public int getStock() { return stock; }
-
-    public void setStock(int stock) { this.stock = stock; }
-
-    //public ProductCategorie getProductCategorie() { return productCategorie; }
-
-    //public void setProductCategorie(ProductCategorie productCategorie) { this.productCategorie = productCategorie; }
-
-    //public BestellingProduct getBestellingProduct() { return bestellingProduct; }
-
-    //public void setBestellingProduct(BestellingProduct bestellingProduct) { this.bestellingProduct = bestellingProduct; }
+    public Integer getStock() { return stock; }
 
     public void setStock(Integer stock) { this.stock = stock; }
 
     public Integer getStockHuurBeschikbaar() { return stockHuurBeschikbaar; }
 
     public void setStockHuurBeschikbaar(Integer stockHuurBeschikbaar) { this.stockHuurBeschikbaar = stockHuurBeschikbaar; }
+
+    public List<ProductCategorie> getProductCategorie() { return productCategorie; }
+
+    public void setProductCategorie(List<ProductCategorie> productCategorie) { this.productCategorie = productCategorie; }
+
+    public List<BestellingProduct> getBestellingProduct() { return bestellingProduct; }
+
+    public void setBestellingProduct(List<BestellingProduct> bestellingProduct) { this.bestellingProduct = bestellingProduct; }
 }
