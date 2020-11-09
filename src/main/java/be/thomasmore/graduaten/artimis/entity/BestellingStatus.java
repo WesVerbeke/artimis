@@ -1,21 +1,21 @@
 package be.thomasmore.graduaten.artimis.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class BestellingStatus {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int bestellingStatusCode;
+    private Long bestellingStatusCode;
     private String bestellingStatusBeschrijving;
+
+    @OneToMany
+    private Bestelling bestelling;
 
     public BestellingStatus() {
     }
 
-    public BestellingStatus(int bestellingStatusCode, String bestellingStatusBeschrijving) {
+    public BestellingStatus(Long bestellingStatusCode, String bestellingStatusBeschrijving) {
         this.bestellingStatusCode = bestellingStatusCode;
         this.bestellingStatusBeschrijving = bestellingStatusBeschrijving;
     }
@@ -24,7 +24,7 @@ public class BestellingStatus {
         return bestellingStatusCode;
     }
 
-    public void setBestellingStatusCode(int bestellingStatusCode) {
+    public void setBestellingStatusCode(Long bestellingStatusCode) {
         this.bestellingStatusCode = bestellingStatusCode;
     }
 
