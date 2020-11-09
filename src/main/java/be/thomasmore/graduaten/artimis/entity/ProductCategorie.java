@@ -16,6 +16,8 @@ public class ProductCategorie {
     //Many to One relations with other entities
     @ManyToOne
     private Product product;
+
+    @ManyToOne
     private Categorie categorie;
 
     //Constructors

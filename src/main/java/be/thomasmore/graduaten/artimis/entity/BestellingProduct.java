@@ -19,6 +19,8 @@ public class BestellingProduct {
     //Many to One relations with other entities
     @ManyToOne
     private Product product;
+
+    @ManyToOne
     private Bestelling bestelling;
 
     //Constructors
