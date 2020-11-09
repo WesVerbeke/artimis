@@ -21,23 +21,35 @@ public class Categorie {
     public Categorie() {
     }
 
-    public Categorie(Long categorieId, String categorieNaam, ProductCategorie productCategorie) {
+    public Categorie(Long categorieId, String categorieNaam, List<ProductCategorie> productCategorie) {
         this.categorieId = categorieId;
         this.categorieNaam = categorieNaam;
-        this.productCategorie = (List<ProductCategorie>) productCategorie;
+        this.productCategorie = productCategorie;
     }
 
-
     //Getters & Setters
-    public Long getCategorieId() { return categorieId; }
 
-    public void setCategorieId(Long categorieId) { this.categorieId = categorieId; }
+    public Long getCategorieId() {
+        return categorieId;
+    }
 
-    public String getCategorieNaam() { return categorieNaam; }
+    public void setCategorieId(Long categorieId) {
+        this.categorieId = categorieId;
+    }
 
-    public void setCategorieNaam(String categorieNaam) { this.categorieNaam = categorieNaam; }
+    public String getCategorieNaam() {
+        return categorieNaam;
+    }
 
-    public ProductCategorie getProductCategorie() { return (ProductCategorie) productCategorie; }
+    public void setCategorieNaam(String categorieNaam) {
+        this.categorieNaam = categorieNaam;
+    }
 
-    public void setProductCategorie(ProductCategorie productCategorie) { this.productCategorie = (List<ProductCategorie>) productCategorie; }
+    public List<ProductCategorie> getProductCategorie() {
+        return productCategorie;
+    }
+
+    public void setProductCategorie(List<ProductCategorie> productCategorie) {
+        this.productCategorie = productCategorie;
+    }
 }

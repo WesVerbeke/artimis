@@ -1,9 +1,7 @@
 package be.thomasmore.graduaten.artimis.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Klant {
@@ -18,10 +16,14 @@ public class Klant {
     private String gebruikersnaam;
     private String wachtwoord;
 
+    @OneToMany
+    private List<Bestelling> bestellingen;
+
     //Constructor
     public Klant() {} //default constructor
 
-    public Klant(int klantId, String voornaam, String achternaam, String geboortedatum, String email, String telefoon, String gebruikersnaam, String wachtwoord) {
+    public Klant(int klantId, String voornaam, String achternaam, String geboortedatum, String email, String telefoon,
+                 String gebruikersnaam, String wachtwoord, List<Bestelling> bestellingen) {
         this.klantId = klantId;
         this.voornaam = voornaam;
         this.achternaam = achternaam;
@@ -30,6 +32,7 @@ public class Klant {
         this.telefoon = telefoon;
         this.gebruikersnaam = gebruikersnaam;
         this.wachtwoord = wachtwoord;
+        this.bestellingen = bestellingen;
     }
 
     public int getKlantId() {
