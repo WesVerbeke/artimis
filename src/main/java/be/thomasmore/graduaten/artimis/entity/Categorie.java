@@ -2,6 +2,7 @@ package be.thomasmore.graduaten.artimis.entity;
 
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Categorie {
@@ -13,24 +14,19 @@ public class Categorie {
     private String categorieNaam;
 
     //One to Many relations with other entities
-    //@OneToMany
-    //private ProductCategorie productCategorie;
+    @OneToMany
+    private List<ProductCategorie> productCategorie;
 
     //Constructors
     public Categorie() {
     }
 
-    //public Categorie(Long categorieId, String categorieNaam, ProductCategorie productCategorie) {
-    //    this.categorieId = categorieId;
-    //    this.categorieNaam = categorieNaam;
-    //    this.productCategorie = productCategorie;
-    //}
-
-    public Categorie(Long categorieId, String categorieNaam) {
+    public Categorie(Long categorieId, String categorieNaam, ProductCategorie productCategorie) {
         this.categorieId = categorieId;
         this.categorieNaam = categorieNaam;
-        //this.productCategorie = productCategorie;
+        this.productCategorie = (List<ProductCategorie>) productCategorie;
     }
+
 
     //Getters & Setters
     public Long getCategorieId() { return categorieId; }
@@ -41,7 +37,7 @@ public class Categorie {
 
     public void setCategorieNaam(String categorieNaam) { this.categorieNaam = categorieNaam; }
 
-    //public ProductCategorie getProductCategorie() { return productCategorie; }
+    public ProductCategorie getProductCategorie() { return (ProductCategorie) productCategorie; }
 
-    //public void setProductCategorie(ProductCategorie productCategorie) { this.productCategorie = productCategorie; }
+    public void setProductCategorie(ProductCategorie productCategorie) { this.productCategorie = (List<ProductCategorie>) productCategorie; }
 }
