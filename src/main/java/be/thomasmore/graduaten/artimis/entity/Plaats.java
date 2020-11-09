@@ -1,9 +1,7 @@
 package be.thomasmore.graduaten.artimis.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Plaats {
@@ -19,13 +17,17 @@ public class Plaats {
     private String postcode;
     private String gemeente;
 
+    @OneToMany
+    private List<Bestelling> bestellingen;
+
     public Plaats() {
     }
 
-    public Plaats(int plaatsID, String postcode, String gemeente) {
+    public Plaats(int plaatsID, String postcode, String gemeente, List<Bestelling> bestellingen) {
         this.plaatsID = plaatsID;
         this.postcode = postcode;
         this.gemeente = gemeente;
+        this.bestellingen = bestellingen;
     }
 
     public int getPlaatsID() {
@@ -50,6 +52,14 @@ public class Plaats {
 
     public void setGemeente(String gemeente) {
         this.gemeente = gemeente;
+    }
+
+    public List<Bestelling> getBestellingen() {
+        return bestellingen;
+    }
+
+    public void setBestellingen(List<Bestelling> bestellingen) {
+        this.bestellingen = bestellingen;
     }
 
     @Override

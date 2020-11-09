@@ -16,10 +16,10 @@ public class BestellingStatus {
     public BestellingStatus() {
     }
 
-    public BestellingStatus(Long bestellingStatusCode, String bestellingStatusBeschrijving, Bestelling bestelling) {
+    public BestellingStatus(Long bestellingStatusCode, String bestellingStatusBeschrijving, List<Bestelling> bestelling) {
         this.bestellingStatusCode = bestellingStatusCode;
         this.bestellingStatusBeschrijving = bestellingStatusBeschrijving;
-        this.bestelling = (List<Bestelling>) bestelling;
+        this.bestelling = bestelling;
     }
 
     public Long getBestellingStatusCode() {
@@ -38,12 +38,12 @@ public class BestellingStatus {
         this.bestellingStatusBeschrijving = bestellingStatusBeschrijving;
     }
 
-    public Bestelling getBestelling() {
-        return (Bestelling) bestelling;
+    public List<Bestelling> getBestelling() {
+        return bestelling;
     }
 
-    public void setBestelling(Bestelling bestelling) {
-        this.bestelling = (List<Bestelling>) bestelling;
+    public void setBestelling(List<Bestelling> bestelling) {
+        this.bestelling = bestelling;
     }
 
     @Override

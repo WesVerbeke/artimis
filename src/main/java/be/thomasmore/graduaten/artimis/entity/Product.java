@@ -32,8 +32,8 @@ public class Product {
     public Product() {
     }
 
-    public Product(Long productId, String productNaam, String productBeschrijving, Integer aantalSpelers, Boolean huurVerkoop, Double prijs, Integer stock,
-                   ProductCategorie productCategorie, BestellingProduct bestellingProduct) {
+    public Product(Long productId, String productNaam, String productBeschrijving, Integer aantalSpelers,
+                   Boolean huurVerkoop, Double prijs, Integer stock, List<ProductCategorie> productCategorie, List<BestellingProduct> bestellingProduct) {
         this.productId = productId;
         this.productNaam = productNaam;
         this.productBeschrijving = productBeschrijving;
@@ -41,49 +41,89 @@ public class Product {
         this.huurVerkoop = huurVerkoop;
         this.prijs = prijs;
         this.stock = stock;
-        this.productCategorie = (List<ProductCategorie>) productCategorie;
-        this.bestellingProduct = (List<BestellingProduct>) bestellingProduct;
+        this.productCategorie = productCategorie;
+        this.bestellingProduct = bestellingProduct;
     }
 
     //Getters & Setters
 
-    public Long getProductId() { return productId; }
+    public Long getProductId() {
+        return productId;
+    }
 
-    public void setProductId(Long productId) { this.productId = productId; }
+    public void setProductId(Long productId) {
+        this.productId = productId;
+    }
 
-    public String getProductNaam() { return productNaam; }
+    public String getProductNaam() {
+        return productNaam;
+    }
 
-    public void setProductNaam(String productNaam) { this.productNaam = productNaam; }
+    public void setProductNaam(String productNaam) {
+        this.productNaam = productNaam;
+    }
 
-    public String getProductBeschrijving() { return productBeschrijving; }
+    public String getProductBeschrijving() {
+        return productBeschrijving;
+    }
 
-    public void setProductBeschrijving(String productBeschrijving) { this.productBeschrijving = productBeschrijving; }
+    public void setProductBeschrijving(String productBeschrijving) {
+        this.productBeschrijving = productBeschrijving;
+    }
 
-    public Integer getAantalSpelers() { return aantalSpelers; }
+    public Integer getAantalSpelers() {
+        return aantalSpelers;
+    }
 
-    public void setAantalSpelers(Integer aantalSpelers) { this.aantalSpelers = aantalSpelers; }
+    public void setAantalSpelers(Integer aantalSpelers) {
+        this.aantalSpelers = aantalSpelers;
+    }
 
-    public Boolean getHuurVerkoop() { return huurVerkoop; }
+    public Boolean getHuurVerkoop() {
+        return huurVerkoop;
+    }
 
-    public void setHuurVerkoop(Boolean huurVerkoop) { this.huurVerkoop = huurVerkoop; }
+    public void setHuurVerkoop(Boolean huurVerkoop) {
+        this.huurVerkoop = huurVerkoop;
+    }
 
-    public Double getPrijs() { return prijs; }
+    public Double getPrijs() {
+        return prijs;
+    }
 
-    public void setPrijs(Double prijs) { this.prijs = prijs; }
+    public void setPrijs(Double prijs) {
+        this.prijs = prijs;
+    }
 
-    public Integer getStock() { return stock; }
+    public Integer getStock() {
+        return stock;
+    }
 
-    public void setStock(Integer stock) { this.stock = stock; }
+    public void setStock(Integer stock) {
+        this.stock = stock;
+    }
 
-    public Integer getStockHuurBeschikbaar() { return stockHuurBeschikbaar; }
+    public Integer getStockHuurBeschikbaar() {
+        return stockHuurBeschikbaar;
+    }
 
-    public void setStockHuurBeschikbaar(Integer stockHuurBeschikbaar) { this.stockHuurBeschikbaar = stockHuurBeschikbaar; }
+    public void setStockHuurBeschikbaar(Integer stockHuurBeschikbaar) {
+        this.stockHuurBeschikbaar = stockHuurBeschikbaar;
+    }
 
-    public List<ProductCategorie> getProductCategorie() { return productCategorie; }
+    public List<ProductCategorie> getProductCategorie() {
+        return productCategorie;
+    }
 
-    public void setProductCategorie(List<ProductCategorie> productCategorie) { this.productCategorie = productCategorie; }
+    public void setProductCategorie(List<ProductCategorie> productCategorie) {
+        this.productCategorie = productCategorie;
+    }
 
-    public List<BestellingProduct> getBestellingProduct() { return bestellingProduct; }
+    public List<BestellingProduct> getBestellingProduct() {
+        return bestellingProduct;
+    }
 
-    public void setBestellingProduct(List<BestellingProduct> bestellingProduct) { this.bestellingProduct = bestellingProduct; }
+    public void setBestellingProduct(List<BestellingProduct> bestellingProduct) {
+        this.bestellingProduct = bestellingProduct;
+    }
 }
