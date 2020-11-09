@@ -27,15 +27,25 @@ public class BestellingProduct {
     public BestellingProduct() {
     }
 
-    public BestellingProduct(Integer bestellingProductId, Integer productId, Integer bestellingId, Integer aantal, Date einddatum, Product product, Bestelling bestelling) {
+    //public BestellingProduct(Integer bestellingProductId, Integer productId, Integer bestellingId, Integer aantal, Date einddatum, Product product, Bestelling bestelling) {
+    //    this.bestellingProductId = bestellingProductId;
+    //    this.productId = productId;
+    //    this.bestellingId = bestellingId;
+    //    this.aantal = aantal;
+    //    this.einddatum = einddatum;
+    //    this.product = product;
+    //    this.bestelling = bestelling;
+    //}
+
+    public BestellingProduct(Integer bestellingProductId, Integer productId, Integer bestellingId, Integer aantal, Product product, Bestelling bestelling) {
         this.bestellingProductId = bestellingProductId;
         this.productId = productId;
         this.bestellingId = bestellingId;
         this.aantal = aantal;
-        this.einddatum = einddatum;
         this.product = product;
         this.bestelling = bestelling;
     }
+
 
     //Getters & Setters
 

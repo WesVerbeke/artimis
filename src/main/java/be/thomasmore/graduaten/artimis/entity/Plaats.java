@@ -15,7 +15,7 @@ public class Plaats {
     //https://vladmihalcea.com/why-you-should-never-use-the-table-identifier-generator-with-jpa-and-hibernate/
 
     //in plaats daarvan de user wel op het attribuut postcode laten zoeken maar de database laten auto-increments maken via IDENTITY
-    //de vraag is dan wel: hoe zorgen we er voor dat Postcode unique identifier is? (kan dit in de code of enkel op database niveau?)
+    //!moeten er dan wel voor zorgen dat postcode unique identifier is in de database
     private String postcode;
     private String gemeente;
 
