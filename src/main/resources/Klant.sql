@@ -1,0 +1,12 @@
+--DROP TABLE IF EXISTS Klant;
+
+CREATE TABLE Klant(
+klantId INT PRIMARY KEY,
+voornaam NVARCHAR(250) NOT NULL,
+achternaam NVARCHAR(250) NOT NULL,
+geboortedatum DATE NOT NULL,
+email NVARCHAR(250) NOT NULL,
+telefoon NVARCHAR(250) NULL,
+gebruikersnaam NVARCHAR(250) NOT NULL,
+wachtwoord NVARCHAR(250) NOT NULL
+);
