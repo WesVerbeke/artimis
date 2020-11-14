@@ -7,7 +7,7 @@ import java.util.List;
 public class BestellingStatus {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long bestellingStatusCode;
+    private Long bestellingStatusId;
     private String bestellingStatusBeschrijving;
 
     @OneToMany
@@ -16,18 +16,18 @@ public class BestellingStatus {
     public BestellingStatus() {
     }
 
-    public BestellingStatus(Long bestellingStatusCode, String bestellingStatusBeschrijving, List<Bestelling> bestelling) {
-        this.bestellingStatusCode = bestellingStatusCode;
+    public BestellingStatus(Long bestellingStatusId, String bestellingStatusBeschrijving, List<Bestelling> bestelling) {
+        this.bestellingStatusId = bestellingStatusId;
         this.bestellingStatusBeschrijving = bestellingStatusBeschrijving;
         this.bestelling = bestelling;
     }
 
-    public Long getBestellingStatusCode() {
-        return bestellingStatusCode;
+    public Long getBestellingStatusId() {
+        return bestellingStatusId;
     }
 
-    public void setBestellingStatusCode(Long bestellingStatusCode) {
-        this.bestellingStatusCode = bestellingStatusCode;
+    public void setBestellingStatusId(Long bestellingStatusCode) {
+        this.bestellingStatusId = bestellingStatusCode;
     }
 
     public String getBestellingStatusBeschrijving() {
@@ -48,6 +48,6 @@ public class BestellingStatus {
 
     @Override
     public String toString() {
-        return bestellingStatusCode + " " + bestellingStatusBeschrijving;
+        return bestellingStatusId + " " + bestellingStatusBeschrijving;
     }
 }

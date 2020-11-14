@@ -8,12 +8,6 @@ public class Plaats {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) //GenerationType.Table
     private int plaatsID;
-    //ik wou eerst GenerationType.TABLE pakken omdat postcode een natural key is
-    //maar alle research die ik hiervoor heb gedaan raadt dit af, onderstaande link legt uit waarom:
-    //https://vladmihalcea.com/why-you-should-never-use-the-table-identifier-generator-with-jpa-and-hibernate/
-
-    //in plaats daarvan de user wel op het attribuut postcode laten zoeken maar de database laten auto-increments maken via IDENTITY
-    //!moeten er dan wel voor zorgen dat postcode unique identifier is in de database
     private String postcode;
     private String gemeente;
 

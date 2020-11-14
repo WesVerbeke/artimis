@@ -22,14 +22,13 @@ public class Klant {
     //Constructor
     public Klant() {} //default constructor
 
-    public Klant(int klantId, String voornaam, String achternaam, String geboortedatum, String email, String telefoon,
+    public Klant(int klantId, String voornaam, String achternaam, String geboortedatum, String email,
                  String gebruikersnaam, String wachtwoord, List<Bestelling> bestellingen) {
         this.klantId = klantId;
         this.voornaam = voornaam;
         this.achternaam = achternaam;
         this.geboortedatum = geboortedatum;
         this.email = email;
-        this.telefoon = telefoon;
         this.gebruikersnaam = gebruikersnaam;
         this.wachtwoord = wachtwoord;
         this.bestellingen = bestellingen;

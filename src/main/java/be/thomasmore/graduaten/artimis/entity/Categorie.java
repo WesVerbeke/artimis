@@ -28,7 +28,6 @@ public class Categorie {
     }
 
     //Getters & Setters
-
     public Long getCategorieId() {
         return categorieId;
     }

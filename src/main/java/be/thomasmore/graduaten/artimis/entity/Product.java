@@ -19,7 +19,6 @@ public class Product {
     private Boolean huurVerkoop;
     private Double prijs;
     private Integer stock;
-    private Integer stockHuurBeschikbaar;
 
     //OnToMany relations with other entities
     @OneToMany
@@ -101,14 +100,6 @@ public class Product {
 
     public void setStock(Integer stock) {
         this.stock = stock;
-    }
-
-    public Integer getStockHuurBeschikbaar() {
-        return stockHuurBeschikbaar;
-    }
-
-    public void setStockHuurBeschikbaar(Integer stockHuurBeschikbaar) {
-        this.stockHuurBeschikbaar = stockHuurBeschikbaar;
     }
 
     public List<ProductCategorie> getProductCategorie() {
