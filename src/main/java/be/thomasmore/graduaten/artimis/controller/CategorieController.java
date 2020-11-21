@@ -9,6 +9,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 public class CategorieController {
@@ -17,9 +19,9 @@ public class CategorieController {
     CategorieService categorieService;
 
     @RequestMapping("/data-categorie")
-    public String categorie(HttpServletRequest request, Model model) {
-        Long categorieID = Long.parseLong(request.getParameter("categorieId"));
-        Categorie categorie = categorieService.getCategorieById(categorieID);
+    public  String dataCategorie(HttpServletRequest request, Model model){
+        Long categorieId = Long.parseLong(request.getParameter("categorieId"));
+        Categorie categorie = categorieService.getCategorieById(categorieId);
         model.addAttribute("categorie", categorie);
         return "data-categorie";
     }

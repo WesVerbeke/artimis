@@ -5,6 +5,6 @@ import java.util.List;
 
 public interface CategorieService {
     Categorie getCategorieById(Long categorieId);
-    List<Categorie> getCategoriën();
+    List<Categorie> getCategorien();
     Categorie addCategorie(Categorie categorie);
 }
