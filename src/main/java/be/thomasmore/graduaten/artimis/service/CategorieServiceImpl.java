@@ -12,20 +12,20 @@ import java.util.List;
 public class CategorieServiceImpl implements CategorieService{
 
     @Autowired
-    CategorieRepository CategorieRepository;
+    CategorieRepository categorieRepository;
 
     @Override
     public Categorie getCategorieById(Long categorieId) {
-        return CategorieRepository.getOne(categorieId);
+        return categorieRepository.getOne(categorieId);
     }
 
     @Override
     public List<Categorie> getCategoriën() {
-        return CategorieRepository.findAll();
+        return categorieRepository.findAll();
     }
 
     @Override
     public Categorie addCategorie(Categorie categorie) {
-        return CategorieRepository.save(categorie);
+        return categorieRepository.save(categorie);
     }
 }
