@@ -17,7 +17,7 @@ public class KlantController {
     @Autowired
     KlantService klantService;
 
-    @RequestMapping("/data-bestelling")
+    @RequestMapping("/data-klant")
     public  String dataMultiple(Model model) {
         List<Klant> klanten = klantService.getKlanten();
         model.addAttribute("klanten", klanten);
