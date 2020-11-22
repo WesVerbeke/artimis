@@ -22,6 +22,4 @@ public class BestellingController {
         model.addAttribute("bestellingen", bestellingen);
         return "data-bestelling";
     }
-
-
 }
