@@ -1,3 +1,6 @@
+<%@ page import="be.thomasmore.graduaten.artimis.entity.Klant" %>
+<%@ page import="java.util.List" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%--
   Created by IntelliJ IDEA.
   User: wesve
@@ -5,12 +8,23 @@
   Time: 14:47
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <html>
 <head>
-    <title>Title</title>
+    <title>data-klant</title>
 </head>
 <body>
+    <h1>Data tonen bij wijze van test</h1>
+
+    <%
+        List<Klant> klanten = (List<Klant>) request.getAttribute("klanten");
+        out.print("<table border='1'>");
+        out.print("<tr><th>Naam klant</th><th>Achternaam klant</th></tr>");
+        for (Klant klant: klanten) {
+            out.print("<tr><td>" + klant.getVoornaam() + "</td><td>" + klant.getAchternaam() + "</td></tr>");
+        }
+        out.print("</table>");
+    %>
 
 </body>
 </html>
