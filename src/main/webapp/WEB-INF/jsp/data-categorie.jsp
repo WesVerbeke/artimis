@@ -13,10 +13,10 @@
 <body>
     <h1>1 Categorie tonen bij wijze van test</h1>
 
-    <%
+    <%--
         Categorie categorie = (Categorie) request.getAttribute("Categorie");
         out.print("<p>Naam categorie: " + categorie.getCategorieNaam() + "</p>");
-    %>
+    --%>
 
     <p>
         <a href="/">

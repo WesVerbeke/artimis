@@ -1,6 +1,7 @@
 package be.thomasmore.graduaten.artimis.controller;
 
 
+import be.thomasmore.graduaten.artimis.entity.Bestelling;
 import be.thomasmore.graduaten.artimis.entity.Categorie;
 import be.thomasmore.graduaten.artimis.service.CategorieService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,10 +20,9 @@ public class CategorieController {
     CategorieService categorieService;
 
     @RequestMapping("/data-categorie")
-    public  String dataCategorie(HttpServletRequest request, Model model){
-        Long categorieId = Long.parseLong(request.getParameter("categorieId"));
-        Categorie categorie = categorieService.getCategorieById(categorieId);
-        model.addAttribute("categorie", categorie);
+    public  String dataMultiple(Model model) {
+        List<Categorie> categorien = categorieService.getCategorien();
+        model.addAttribute("categorien", categorien);
         return "data-categorie";
     }
 }

@@ -16,7 +16,7 @@
 <body>
     <h1>Data tonen bij wijze van test</h1>
 
-    <%
+    <%--
         List<Klant> klanten = (List<Klant>) request.getAttribute("klanten");
         out.print("<table border='1'>");
         out.print("<tr><th>Naam klant</th><th>Achternaam klant</th></tr>");
@@ -24,7 +24,7 @@
             out.print("<tr><td>" + klant.getVoornaam() + "</td><td>" + klant.getAchternaam() + "</td></tr>");
         }
         out.print("</table>");
-    %>
+    --%>
 
 </body>
 </html>
