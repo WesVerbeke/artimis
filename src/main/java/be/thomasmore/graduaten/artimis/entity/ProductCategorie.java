@@ -9,7 +9,7 @@ public class ProductCategorie {
     //Fields
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
-    private Integer productCategorieId;
+    private Long productCategorieId;
     private Integer productId;
     private Integer categorieId;
 
@@ -24,7 +24,7 @@ public class ProductCategorie {
     public ProductCategorie() {
     }
 
-    public ProductCategorie(Integer productCategorieId, Integer productId, Integer categorieId, Product product, Categorie categorie) {
+    public ProductCategorie(Long productCategorieId, Integer productId, Integer categorieId, Product product, Categorie categorie) {
         this.productCategorieId = productCategorieId;
         this.productId = productId;
         this.categorieId = categorieId;
@@ -34,9 +34,9 @@ public class ProductCategorie {
 
     //Getters & Setters
 
-    public Integer getProductCategorieId() { return productCategorieId; }
+    public Long getProductCategorieId() { return productCategorieId; }
 
-    public void setProductCategorieId(Integer productCategorieId) { this.productCategorieId = productCategorieId; }
+    public void setProductCategorieId(Long productCategorieId) { this.productCategorieId = productCategorieId; }
 
     public Integer getProductId() { return productId; }
 

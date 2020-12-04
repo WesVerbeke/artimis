@@ -7,7 +7,7 @@ import java.util.Date;
 public class Bestelling {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int bestellingId;
+    private Long bestellingId;
     private String referentie;
     private Date bestellingDatum;
     private String leverAdres;
@@ -24,7 +24,7 @@ public class Bestelling {
     public Bestelling() {
     }
 
-    public Bestelling(int bestellingId, String referentie, Date bestellingDatum, String leverAdres, Klant klant, Plaats plaats, BestellingStatus bestellingStatus) {
+    public Bestelling(Long bestellingId, String referentie, Date bestellingDatum, String leverAdres, Klant klant, Plaats plaats, BestellingStatus bestellingStatus) {
         this.bestellingId = bestellingId;
         this.referentie = referentie;
         this.bestellingDatum = bestellingDatum;
@@ -34,11 +34,11 @@ public class Bestelling {
         this.bestellingStatus = bestellingStatus;
     }
 
-    public int getBestellingId() {
+    public Long getBestellingId() {
         return bestellingId;
     }
 
-    public void setBestellingId(int bestellingId) {
+    public void setBestellingId(Long bestellingId) {
         this.bestellingId = bestellingId;
     }
 

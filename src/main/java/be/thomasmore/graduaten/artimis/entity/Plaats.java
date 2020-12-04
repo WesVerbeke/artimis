@@ -7,7 +7,7 @@ import java.util.List;
 public class Plaats {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) //GenerationType.Table
-    private int plaatsID;
+    private Long plaatsID;
     private String postcode;
     private String gemeente;
 
@@ -17,18 +17,18 @@ public class Plaats {
     public Plaats() {
     }
 
-    public Plaats(int plaatsID, String postcode, String gemeente, List<Bestelling> bestellingen) {
+    public Plaats(Long plaatsID, String postcode, String gemeente, List<Bestelling> bestellingen) {
         this.plaatsID = plaatsID;
         this.postcode = postcode;
         this.gemeente = gemeente;
         this.bestellingen = bestellingen;
     }
 
-    public int getPlaatsID() {
+    public Long getPlaatsID() {
         return plaatsID;
     }
 
-    public void setPlaatsID(int plaatsID) {
+    public void setPlaatsID(Long plaatsID) {
         this.plaatsID = plaatsID;
     }
 

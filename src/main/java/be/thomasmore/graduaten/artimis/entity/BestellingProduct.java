@@ -10,9 +10,9 @@ public class BestellingProduct {
     //Fields
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer bestellingProductId;
-    private Integer productId;
-    private Integer bestellingId;
+    private Long bestellingProductId;
+    private Long productId;
+    private Long bestellingId;
     private Integer aantal;
     private Date einddatum;
 
@@ -27,7 +27,7 @@ public class BestellingProduct {
     public BestellingProduct() {
     }
 
-    public BestellingProduct(Integer bestellingProductId, Integer productId, Integer bestellingId, Integer aantal, Product product, Bestelling bestelling) {
+    public BestellingProduct(Long bestellingProductId, Long productId, Long bestellingId, Integer aantal, Product product, Bestelling bestelling) {
         this.bestellingProductId = bestellingProductId;
         this.productId = productId;
         this.bestellingId = bestellingId;
@@ -39,17 +39,17 @@ public class BestellingProduct {
 
     //Getters & Setters
 
-    public Integer getBestellingProductId() { return bestellingProductId; }
+    public Long getBestellingProductId() { return bestellingProductId; }
 
-    public void setBestellingProductId(Integer bestellingProductId) { this.bestellingProductId = bestellingProductId; }
+    public void setBestellingProductId(Long bestellingProductId) { this.bestellingProductId = bestellingProductId; }
 
-    public Integer getProductId() { return productId; }
+    public Long getProductId() { return productId; }
 
-    public void setProductId(Integer productId) { this.productId = productId; }
+    public void setProductId(Long productId) { this.productId = productId; }
 
-    public Integer getBestellingId() { return bestellingId; }
+    public Long getBestellingId() { return bestellingId; }
 
-    public void setBestellingId(Integer bestellingId) { this.bestellingId = bestellingId; }
+    public void setBestellingId(Long bestellingId) { this.bestellingId = bestellingId; }
 
     public Integer getAantal() { return aantal; }
 
