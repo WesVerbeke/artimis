@@ -3,7 +3,6 @@ package be.thomasmore.graduaten.artimis.controller;
 
 import be.thomasmore.graduaten.artimis.entity.Product;
 import be.thomasmore.graduaten.artimis.service.ProductService;
-import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
