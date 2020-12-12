@@ -15,14 +15,22 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sticky-footer-navbar/">
     <link href="https://getbootstrap.com/docs/5.0/examples/sticky-footer-navbar/sticky-footer-navbar.css" rel="stylesheet">
+    <style>
+        .navbar-brand {
+            margin-top: 19px;
+            margin-bottom: 17px;
+            float: left;
+        }
+    </style>
 </head>
 <body>
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
     <div class="container">
-        <a class="navbar-brand" href="/">
+        <a class="navbar-brand" href="#">
             <img src="../resources/images/logo.jpg" alt="" width="300" height="166">
         </a>
+
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -77,7 +85,7 @@
 <!-- /.container -->
 <footer class="footer mt-auto py-3 bg-light">
     <div class="container">
-        <span class="text-muted">Place sticky footer content here.</span>
+        <span class="text-muted">©All rights reserved</span>
     </div>
 </footer>
 <script src="/docs/5.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
