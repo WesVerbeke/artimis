@@ -9,3 +9,4 @@ huurVerkoop NVARCHAR(250) NOT NULL,
 prijs FLOAT,
 stock INT
 );
+
