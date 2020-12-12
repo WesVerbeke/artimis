@@ -1,15 +1,15 @@
 <%--
   Created by IntelliJ IDEA.
   User: wesve
-  Date: 7/11/2020
-  Time: 12:31
+  Date: 12/12/2020
+  Time: 11:51
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>The Atrimis Project</title>
+    <title>The Atrimis Project: Privacy</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
@@ -37,18 +37,9 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="/kopen">Kopen
+                    <a class="nav-link" href="/">Back
                         <span class="sr-only">(current)</span>
                     </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/login">Login</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/contact">Contact</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/privacy">Privacy</a>
                 </li>
             </ul>
         </div>
@@ -57,31 +48,9 @@
 
 <!-- Page Content -->
 <div class="container">
-    <h1 class="mt-4">Welkom to BoardGamesOnline!</h1>
-    <p>This is the base for the landing-page.</p>
+    <h1 class="mt-4">Privacy Disclaimer for BoardGamesOnline.</h1>
+    <p>Privacy Disclaimer for BoardGamesOnline.</p>
 
-    <div id="Index" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-            <div class="carousel-item active" data-bs-interval="10000">
-                <img src="..." class="d-block w-100" alt="" width="300" height="200">
-            </div>
-            <div class="carousel-item" data-bs-interval="2000">
-                <img src="..." class="d-block w-100" alt="" width="300" height="200">
-            </div>
-            <div class="carousel-item">
-                <img src="..." class="d-block w-100" alt="" width="300" height="200">
-            </div>
-        </div>
-        <a class="carousel-control-prev" href="#Index" role="button" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#Index" role="button" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </a>
-    </div>
-</div>
 <!-- /.container -->
 <footer class="footer mt-auto py-3 bg-light">
     <div class="container">
