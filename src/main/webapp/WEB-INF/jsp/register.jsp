@@ -39,7 +39,7 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="/">Back
+                    <a class="nav-link" href="/login">Back
                         <span class="sr-only">(current)</span>
                     </a>
                 </li>
@@ -51,7 +51,7 @@
 <!-- Page Content -->
 
 <!-- /.container -->
-    <footer class="footer mt-auto py-3 bg-light">
+    <footer class="footer mt-auto py-3 bg-light position-absolute: fixed-bottom">
         <div class="container">
             <span class="text-muted">©All rights reserved</span>
         </div>

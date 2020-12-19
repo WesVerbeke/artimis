@@ -52,7 +52,7 @@
     <p>Here people can buy shit.</p>
 </div>
     <!-- /.container -->
-    <footer class="footer mt-auto py-3 bg-light">
+    <footer class="footer mt-auto py-3 bg-light position-absolute: fixed-bottom">
         <div class="container">
             <span class="text-muted">©All rights reserved</span>
         </div>
