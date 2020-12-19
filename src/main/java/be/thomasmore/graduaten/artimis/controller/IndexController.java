@@ -8,18 +8,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class IndexController {
 
     @RequestMapping("/")
-    public String index() { return "index"; }
+    public String navigateHome() { return "index"; }
 
     @RequestMapping("/privacy")
-    public String privacy() { return "privacy"; }
+    public String navigatePrivacy() { return "privacy"; }
 
     @RequestMapping("/login")
-    public  String login() { return "login"; }
+    public  String navigateLogin() { return "login"; }
 
     @RequestMapping("/kopen")
-    public String kopen() { return "kopen"; }
+    public String navigateKopen() { return "kopen"; }
 
     @RequestMapping("/contact")
-    public String contact() { return "contact"; }
+    public String navigateContact() { return "contact"; }
 
 }
