@@ -28,7 +28,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
     <div class="container">
         <a class="navbar-brand" href="#">
-            <img src="../resources/images/logo.jpg" alt="" width="300" height="166">
+            <img src="../resources/images/logo1.png" alt="" width="300" height="166">
         </a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -37,9 +37,12 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="/">Back
+                    <a class="nav-link" href="/register">Register
                         <span class="sr-only">(current)</span>
                     </a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/">Back</a>
                 </li>
             </ul>
         </div>
@@ -48,8 +51,8 @@
 
 <!-- Page Content -->
 <div class="container">
-    <h1 class="mt-4">Login page for BoardGamesOnline.</h1>
-    <p>Here we can log into our account.</p>
+    <h1 class="mt-4">Not a member yet? Please register in order to log in.</h1>
+    <p>Login.</p>
 
     <!-- /.container -->
     <footer class="footer mt-auto py-3 bg-light">

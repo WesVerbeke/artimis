@@ -50,7 +50,7 @@
 <div class="container">
     <h1 class="mt-4">Kopen pagina for BoardGamesOnline.</h1>
     <p>Here people can buy shit.</p>
-
+</div>
     <!-- /.container -->
     <footer class="footer mt-auto py-3 bg-light">
         <div class="container">
