@@ -6,8 +6,8 @@ import java.util.List;
 
 public interface BestellingProductService {
     BestellingProduct getBestellingProductById(Long bestellingProductId);
-    public List<BestellingProduct> getBestellingProducten();
-    public List<BestellingProduct> getBestellingProductenByBestelling(Long bestellingId);
-    public List<BestellingProduct> getBestellingProductenByProduct(Long productId);
+    List<BestellingProduct> getBestellingProducten();
+    List<BestellingProduct> getBestellingProductenByBestelling(Long bestellingId);
+    List<BestellingProduct> getBestellingProductenByProduct(Long productId);
     BestellingProduct addBestellingProduct(BestellingProduct bestellingProduct);
 }
