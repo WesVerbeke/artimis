@@ -5,6 +5,12 @@ import java.util.List;
 
 @Entity
 public class Klant {
+
+    public static final String NAME = "klant";
+    public static final String FIRST_NAME = "Voornaam";
+    public static final String LAST_NAME = "Achternaam";
+    public static final String EMAIL = "Email";
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long klantId;
