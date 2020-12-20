@@ -8,6 +8,7 @@
 <%@ page import="java.util.List" %>
 <%@ page import="be.thomasmore.graduaten.artimis.entity.Klant" %>
 <%@ page import="be.thomasmore.graduaten.artimis.service.KlantService" %>
+<%@ page import="be.thomasmore.graduaten.artimis.entity.KlantError" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -49,13 +50,59 @@
 </nav>
 
 <!-- Page Content -->
+<%
+    Klant klant = (Klant) request.getAttribute(Klant.NAME);
+    KlantError klantError = (KlantError) request.getAttribute(KlantError.NAME);
+%>
 
-<!-- /.container -->
+<div class="container-flex p-3">
+    <form class="needs-validation" action="${pageContext.request.contextPath}/register" method="get" novalidate>
+        <div class="form-group">
+            <label for="<%=Klant.FIRST_NAME%>"><%=Klant.FIRST_NAME%></label>
+            <input
+                    type="text"
+                    class="form-control<%out.print(klantError.voornaam != null ? " is-invalid" : "");%>"
+                    id="<%=Klant.FIRST_NAME%>"
+                    name="<%=Klant.FIRST_NAME%>"
+                    value="<%=klant.getVoornaam() == null ? "" : klant.getVoornaam()%>"
+                    required>
+            <%out.print(klantError.voornaam != null ? "<div class=\"invalid-feedback\">" + klantError.voornaam + "</div>" : "");%>
+        </div>
+        <div class="form-group">
+            <label for="<%=Klant.LAST_NAME%>"><%=Klant.LAST_NAME%></label>
+            <input
+                    type="text"
+                    class="form-control<%out.print(klantError.achternaam != null ? " is-invalid" : "");%>"
+                    id="<%=Klant.LAST_NAME%>"
+                    name="<%=Klant.LAST_NAME%>"
+                    value="<%=klant.getAchternaam() == null ? "" : klant.getAchternaam()%>"
+                    required>
+            <%out.print(klantError.achternaam != null ? "<div class=\"invalid-feedback\">" + klantError.achternaam + "</div>" : "");%>
+        </div>
+        <div class="form-group">
+            <label for="<%=Klant.EMAIL%>"><%=Klant.EMAIL%></label>
+            <input
+                    type="email"
+                    class="form-control<%out.print(klantError.email != null ? " is-invalid" : "");%>"
+                    id="<%=Klant.EMAIL%>"
+                    name="<%=Klant.EMAIL%>"
+                    value="<%=klant.getEmail() == null ? "" : klant.getEmail()%>"
+                    required>
+            <%out.print(klantError.email != null ? "<div class=\"invalid-feedback\">" + klantError.email + "</div>" : "");%>
+        </div>
+        <input type="submit" class="btn btn-orange" value="Submit user">
+    </form>
+</div>
+
+    <!-- /.container -->
     <footer class="footer mt-auto py-3 bg-light position-absolute: fixed-bottom">
         <div class="container">
             <span class="text-muted">©All rights reserved</span>
         </div>
     </footer>
+
+    <!--jQuery, Popper.js, and Bootstrap JS-->
+    <script src="js/scripts.js"></script>
     <script src="/docs/5.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
