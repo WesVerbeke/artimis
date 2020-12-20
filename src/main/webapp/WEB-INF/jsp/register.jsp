@@ -6,9 +6,11 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page import="java.util.List" %>
-<%@ page import="be.thomasmore.graduaten.artimis.entity.Klant" %>
-<%@ page import="be.thomasmore.graduaten.artimis.service.KlantService" %>
-<%@ page import="be.thomasmore.graduaten.artimis.entity.KlantError" %>
+<%@ page import="be.thomasmore.graduaten.artimis.entity.Customer" %>
+<%@ page import="be.thomasmore.graduaten.artimis.service.CustomerService" %>
+<%@ page import="be.thomasmore.graduaten.artimis.entity.CustomerError" %>
+<%@ page import="be.thomasmore.graduaten.artimis.entity.Customer" %>
+<%@ page import="be.thomasmore.graduaten.artimis.entity.CustomerError" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -51,44 +53,44 @@
 
 <!-- Page Content -->
 <%
-    Klant klant = (Klant) request.getAttribute(Klant.NAME);
-    KlantError klantError = (KlantError) request.getAttribute(KlantError.NAME);
+    Customer customer = (Customer) request.getAttribute(Customer.NAME);
+    CustomerError customerError = (CustomerError) request.getAttribute(CustomerError.NAME);
 %>
 
 <div class="container-flex p-3">
     <form class="needs-validation" action="${pageContext.request.contextPath}/register" method="get" novalidate>
         <div class="form-group">
-            <label for="<%=Klant.FIRST_NAME%>"><%=Klant.FIRST_NAME%></label>
+            <label for="<%=Customer.FIRST_NAME%>"><%=Customer.FIRST_NAME%></label>
             <input
                     type="text"
-                    class="form-control<%out.print(klantError.voornaam != null ? " is-invalid" : "");%>"
-                    id="<%=Klant.FIRST_NAME%>"
-                    name="<%=Klant.FIRST_NAME%>"
-                    value="<%=klant.getVoornaam() == null ? "" : klant.getVoornaam()%>"
+                    class="form-control<%out.print(customerError.voornaam != null ? " is-invalid" : "");%>"
+                    id="<%=Customer.FIRST_NAME%>"
+                    name="<%=Customer.FIRST_NAME%>"
+                    value="<%=customer.getVoornaam() == null ? "" : customer.getVoornaam()%>"
                     required>
-            <%out.print(klantError.voornaam != null ? "<div class=\"invalid-feedback\">" + klantError.voornaam + "</div>" : "");%>
+            <%out.print(customerError.voornaam != null ? "<div class=\"invalid-feedback\">" + customerError.voornaam + "</div>" : "");%>
         </div>
         <div class="form-group">
-            <label for="<%=Klant.LAST_NAME%>"><%=Klant.LAST_NAME%></label>
+            <label for="<%=Customer.LAST_NAME%>"><%=Customer.LAST_NAME%></label>
             <input
                     type="text"
-                    class="form-control<%out.print(klantError.achternaam != null ? " is-invalid" : "");%>"
-                    id="<%=Klant.LAST_NAME%>"
-                    name="<%=Klant.LAST_NAME%>"
-                    value="<%=klant.getAchternaam() == null ? "" : klant.getAchternaam()%>"
+                    class="form-control<%out.print(customerError.achternaam != null ? " is-invalid" : "");%>"
+                    id="<%=Customer.LAST_NAME%>"
+                    name="<%=Customer.LAST_NAME%>"
+                    value="<%=customer.getAchternaam() == null ? "" : customer.getAchternaam()%>"
                     required>
-            <%out.print(klantError.achternaam != null ? "<div class=\"invalid-feedback\">" + klantError.achternaam + "</div>" : "");%>
+            <%out.print(customerError.achternaam != null ? "<div class=\"invalid-feedback\">" + customerError.achternaam + "</div>" : "");%>
         </div>
         <div class="form-group">
-            <label for="<%=Klant.EMAIL%>"><%=Klant.EMAIL%></label>
+            <label for="<%=Customer.EMAIL%>"><%=Customer.EMAIL%></label>
             <input
                     type="email"
-                    class="form-control<%out.print(klantError.email != null ? " is-invalid" : "");%>"
-                    id="<%=Klant.EMAIL%>"
-                    name="<%=Klant.EMAIL%>"
-                    value="<%=klant.getEmail() == null ? "" : klant.getEmail()%>"
+                    class="form-control<%out.print(customerError.email != null ? " is-invalid" : "");%>"
+                    id="<%=Customer.EMAIL%>"
+                    name="<%=Customer.EMAIL%>"
+                    value="<%=customer.getEmail() == null ? "" : customer.getEmail()%>"
                     required>
-            <%out.print(klantError.email != null ? "<div class=\"invalid-feedback\">" + klantError.email + "</div>" : "");%>
+            <%out.print(customerError.email != null ? "<div class=\"invalid-feedback\">" + customerError.email + "</div>" : "");%>
         </div>
         <input type="submit" class="btn btn-orange" value="Submit user">
     </form>

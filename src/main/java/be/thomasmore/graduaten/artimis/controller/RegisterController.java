@@ -1,8 +1,8 @@
 package be.thomasmore.graduaten.artimis.controller;
 
 
-import be.thomasmore.graduaten.artimis.entity.Klant;
-import be.thomasmore.graduaten.artimis.entity.KlantError;
+import be.thomasmore.graduaten.artimis.entity.Customer;
+import be.thomasmore.graduaten.artimis.entity.CustomerError;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,62 +16,62 @@ public class RegisterController {
 
     @RequestMapping("/register")
     public String processStudent(HttpServletRequest request, Model model) {
-        Klant klant = new Klant();
-        KlantError klantError = new KlantError();
+        Customer customer = new Customer();
+        CustomerError customerError = new CustomerError();
 
-        validateVoornaam(klant, klantError, request.getParameter(Klant.FIRST_NAME));
-        validateFamilienaam(klant, klantError, request.getParameter(Klant.LAST_NAME));
-        validateEmail(klant, klantError, request.getParameter(Klant.EMAIL));
+        validateVoornaam(customer, customerError, request.getParameter(Customer.FIRST_NAME));
+        validateFamilienaam(customer, customerError, request.getParameter(Customer.LAST_NAME));
+        validateEmail(customer, customerError, request.getParameter(Customer.EMAIL));
 
-        if (klantError.hasErrors) {
-            model.addAttribute(Klant.NAME, klant);
-            model.addAttribute(KlantError.NAME, klantError);
+        if (customerError.hasErrors) {
+            model.addAttribute(Customer.NAME, customer);
+            model.addAttribute(CustomerError.NAME, customerError);
             return "register";
         } else {
-            addKlantToSession(request, klant);
+            addKlantToSession(request, customer);
             return "login";
         }
     }
 
-    private void validateVoornaam(Klant klant, KlantError klantError, String voornaam) {
-        klant.setVoornaam(voornaam);
+    private void validateVoornaam(Customer customer, CustomerError customerError, String voornaam) {
+        customer.setVoornaam(voornaam);
         if (voornaam.isEmpty()) {
-            klantError.voornaam = "Enter a first name please!";
-            klantError.hasErrors = true;
+            customerError.voornaam = "Enter a first name please!";
+            customerError.hasErrors = true;
         }
     }
 
-    private void validateFamilienaam(Klant klant, KlantError klantError, String achternaam) {
-        klant.setAchternaam(achternaam);
+    private void validateFamilienaam(Customer customer, CustomerError customerError, String achternaam) {
+        customer.setAchternaam(achternaam);
         if (achternaam.isEmpty()) {
-            klantError.achternaam = "Enter a last name please!";
-            klantError.hasErrors = true;
+            customerError.achternaam = "Enter a last name please!";
+            customerError.hasErrors = true;
         }
     }
 
 
-    private void validateEmail(Klant klant, KlantError klantError, String email) {
-        klant.setEmail(email);
+    private void validateEmail(Customer customer, CustomerError customerError, String email) {
+        customer.setEmail(email);
         if (email.isEmpty()) {
-            klantError.email = "Enter a valid email address please!";
-            klantError.hasErrors = true;
+            customerError.email = "Enter a valid email address please!";
+            customerError.hasErrors = true;
         } else {
             int posAt = email.indexOf("@");
             int posDot = (posAt != -1) ? email.substring(posAt).indexOf(".") : -1;
             if (posAt == -1 || posDot == -1) {
-                klantError.email = "This email is invalid!";
-                klantError.hasErrors = true;
+                customerError.email = "This email is invalid!";
+                customerError.hasErrors = true;
             }
         }
     }
 
-    private void addKlantToSession(HttpServletRequest request, Klant klant) {
+    private void addKlantToSession(HttpServletRequest request, Customer customer) {
         HttpSession session = request.getSession();
-        ArrayList<Klant> myKlanten = (ArrayList<Klant>) session.getAttribute("myKlanten");
+        ArrayList<Customer> myKlanten = (ArrayList<Customer>) session.getAttribute("myKlanten");
         if (myKlanten == null) {
             myKlanten = new ArrayList<>();
         }
-        myKlanten.add(klant);
+        myKlanten.add(customer);
         session.setAttribute("myKlanten", myKlanten);
     }
 }

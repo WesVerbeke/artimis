@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-public class Klant {
+public class Customer {
 
     public static final String NAME = "klant";
     public static final String FIRST_NAME = "Voornaam";
@@ -26,10 +26,10 @@ public class Klant {
     private List<Bestelling> bestellingen;
 
     //Constructor
-    public Klant() {} //default constructor
+    public Customer() {} //default constructor
 
-    public Klant(Long klantId, String voornaam, String achternaam, String geboortedatum, String email,
-                 String gebruikersnaam, String wachtwoord, List<Bestelling> bestellingen) {
+    public Customer(Long klantId, String voornaam, String achternaam, String geboortedatum, String email,
+                    String gebruikersnaam, String wachtwoord, List<Bestelling> bestellingen) {
         this.klantId = klantId;
         this.voornaam = voornaam;
         this.achternaam = achternaam;
