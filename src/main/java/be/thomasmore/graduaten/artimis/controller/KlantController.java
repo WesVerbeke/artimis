@@ -18,7 +18,7 @@ public class KlantController {
     KlantService klantService;
 
     @RequestMapping("/data-klant")
-    public  String dataMultiple(Model model) {
+    public String dataMultiple(Model model) {
         List<Klant> klanten = klantService.getKlanten();
         model.addAttribute("klanten", klanten);
         return "data-klant";
