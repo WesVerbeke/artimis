@@ -51,7 +51,7 @@
     </div>
 </nav>
 
-<!-- Page Content -->
+    <!-- Page Content -->
 <%
     Customer customer = (Customer) request.getAttribute(Customer.NAME);
     CustomerError customerError = (CustomerError) request.getAttribute(CustomerError.NAME);

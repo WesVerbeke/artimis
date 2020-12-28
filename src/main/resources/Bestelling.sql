@@ -9,3 +9,4 @@ customer INT NOT NULL,
 plaats INT NOT NULL,
 bestellingstatus INT NOT NULL
 );
+
