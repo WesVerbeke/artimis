@@ -3,6 +3,7 @@ package be.thomasmore.graduaten.artimis.controller;
 
 import be.thomasmore.graduaten.artimis.entity.Customer;
 import be.thomasmore.graduaten.artimis.entity.CustomerError;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,6 +14,9 @@ import java.util.ArrayList;
 
 @Controller
 public class RegisterController {
+
+    @Autowired
+    RegisterController registerController;
 
     @RequestMapping("/register")
     public String processStudent(HttpServletRequest request, Model model) {
@@ -35,7 +39,7 @@ public class RegisterController {
 
     private void validateVoornaam(Customer customer, CustomerError customerError, String voornaam) {
         customer.setVoornaam(voornaam);
-        if (voornaam.isEmpty()) {
+        if (voornaam == null) {
             customerError.voornaam = "Enter a first name please!";
             customerError.hasErrors = true;
         }
@@ -67,11 +71,11 @@ public class RegisterController {
 
     private void addKlantToSession(HttpServletRequest request, Customer customer) {
         HttpSession session = request.getSession();
-        ArrayList<Customer> myKlanten = (ArrayList<Customer>) session.getAttribute("myKlanten");
-        if (myKlanten == null) {
-            myKlanten = new ArrayList<>();
+        ArrayList<Customer> myCustomers = (ArrayList<Customer>) session.getAttribute("myCustomers");
+        if (myCustomers == null) {
+            myCustomers = new ArrayList<>();
         }
-        myKlanten.add(customer);
-        session.setAttribute("myKlanten", myKlanten);
+        myCustomers.add(customer);
+        session.setAttribute("myCustomers", myCustomers);
     }
 }
