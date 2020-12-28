@@ -13,7 +13,7 @@ public class Bestelling {
     private String leverAdres;
 
     @ManyToOne
-    private Customer customer;
+    private Klant klant;
 
     @ManyToOne
     private Plaats plaats;
@@ -24,12 +24,12 @@ public class Bestelling {
     public Bestelling() {
     }
 
-    public Bestelling(Long bestellingId, String referentie, Date bestellingDatum, String leverAdres, Customer customer, Plaats plaats, BestellingStatus bestellingStatus) {
+    public Bestelling(Long bestellingId, String referentie, Date bestellingDatum, String leverAdres, Klant klant, Plaats plaats, BestellingStatus bestellingStatus) {
         this.bestellingId = bestellingId;
         this.referentie = referentie;
         this.bestellingDatum = bestellingDatum;
         this.leverAdres = leverAdres;
-        this.customer = customer;
+        this.klant = klant;
         this.plaats = plaats;
         this.bestellingStatus = bestellingStatus;
     }
@@ -66,12 +66,12 @@ public class Bestelling {
         this.leverAdres = leverAdres;
     }
 
-    public Customer getKlant() {
-        return customer;
+    public Klant getKlant() {
+        return klant;
     }
 
-    public void setKlant(Customer customer) {
-        this.customer = customer;
+    public void setKlant(Klant klant) {
+        this.klant = klant;
     }
 
     public Plaats getPlaats() {
