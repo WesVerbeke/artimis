@@ -11,7 +11,7 @@ public class Categorie {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long categorieId;
-    private String categorieNaam;
+    private String categorienaam;
 
     //One to Many relations with other entities
     @OneToMany
@@ -21,9 +21,9 @@ public class Categorie {
     public Categorie() {
     }
 
-    public Categorie(Long categorieId, String categorieNaam, List<ProductCategorie> productCategorie) {
+    public Categorie(Long categorieId, String categorienaam, List<ProductCategorie> productCategorie) {
         this.categorieId = categorieId;
-        this.categorieNaam = categorieNaam;
+        this.categorienaam = categorienaam;
         this.productCategorie = productCategorie;
     }
 
@@ -37,11 +37,11 @@ public class Categorie {
     }
 
     public String getCategorieNaam() {
-        return categorieNaam;
+        return categorienaam;
     }
 
-    public void setCategorieNaam(String categorieNaam) {
-        this.categorieNaam = categorieNaam;
+    public void setCategorieNaam(String categorienaam) {
+        this.categorienaam = categorienaam;
     }
 
     public List<ProductCategorie> getProductCategorie() {
