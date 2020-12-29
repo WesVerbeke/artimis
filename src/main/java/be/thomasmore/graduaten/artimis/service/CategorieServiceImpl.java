@@ -15,7 +15,7 @@ public class CategorieServiceImpl implements CategorieService {
     CategorieRepository categorieRepository;
 
     @Override
-    public Categorie getCategorieById(Long categorieId) { return categorieRepository.getOne(categorieId); }
+    public Categorie getCategorieById(Long categorieid) { return categorieRepository.getOne(categorieid); }
 
     @Override
     public List<Categorie> getCategorien() { return categorieRepository.findAll(); }

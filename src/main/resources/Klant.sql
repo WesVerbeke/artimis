@@ -1,7 +1,7 @@
 --DROP TABLE IF EXISTS Klant;
 
 CREATE TABLE Klant(
-klantId INT NOT NULL AUTO_INCREMENT,
+klantid INT NOT NULL AUTO_INCREMENT,
 voornaam NVARCHAR(250) NOT NULL,
 achternaam NVARCHAR(250) NOT NULL,
 geboortedatum DATE NOT NULL,
@@ -9,7 +9,7 @@ email NVARCHAR(250) NOT NULL,
 telefoon NVARCHAR(250) NULL,
 gebruikersnaam NVARCHAR(250) NOT NULL,
 wachtwoord NVARCHAR(250) NOT NULL,
-PRIMARY KEY (klantId)
+PRIMARY KEY (klantid)
 );
 
 INSERT INTO Klant (voornaam, achternaam, geboortedatum, email, telefoon, gebruikersnaam, wachtwoord)

@@ -7,10 +7,10 @@ import java.util.Date;
 public class Bestelling {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long bestellingId;
+    private Long bestellingid;
     private String referentie;
-    private Date bestellingDatum;
-    private String leverAdres;
+    private Date bestellingdatum;
+    private String leveradres;
 
     @ManyToOne
     private Klant klant;
@@ -24,22 +24,22 @@ public class Bestelling {
     public Bestelling() {
     }
 
-    public Bestelling(Long bestellingId, String referentie, Date bestellingDatum, String leverAdres, Klant klant, Plaats plaats, BestellingStatus bestellingStatus) {
-        this.bestellingId = bestellingId;
+    public Bestelling(Long bestellingid, String referentie, Date bestellingdatum, String leveradres, Klant klant, Plaats plaats, BestellingStatus bestellingStatus) {
+        this.bestellingid = bestellingid;
         this.referentie = referentie;
-        this.bestellingDatum = bestellingDatum;
-        this.leverAdres = leverAdres;
+        this.bestellingdatum = bestellingdatum;
+        this.leveradres = leveradres;
         this.klant = klant;
         this.plaats = plaats;
         this.bestellingStatus = bestellingStatus;
     }
 
-    public Long getBestellingId() {
-        return bestellingId;
+    public Long getbestellingid() {
+        return bestellingid;
     }
 
-    public void setBestellingId(Long bestellingId) {
-        this.bestellingId = bestellingId;
+    public void setbestellingid(Long bestellingid) {
+        this.bestellingid = bestellingid;
     }
 
     public String getReferentie() {
@@ -50,20 +50,20 @@ public class Bestelling {
         this.referentie = referentie;
     }
 
-    public Date getBestellingDatum() {
-        return bestellingDatum;
+    public Date getbestellingdatum() {
+        return bestellingdatum;
     }
 
-    public void setBestellingDatum(Date bestellingDatum) {
-        this.bestellingDatum = bestellingDatum;
+    public void setbestellingdatum(Date bestellingdatum) {
+        this.bestellingdatum = bestellingdatum;
     }
 
-    public String getLeverAdres() {
-        return leverAdres;
+    public String getleveradres() {
+        return leveradres;
     }
 
-    public void setLeverAdres(String leverAdres) {
-        this.leverAdres = leverAdres;
+    public void setleveradres(String leveradres) {
+        this.leveradres = leveradres;
     }
 
     public Klant getKlant() {

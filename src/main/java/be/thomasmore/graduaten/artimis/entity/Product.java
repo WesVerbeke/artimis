@@ -12,11 +12,11 @@ public class Product {
     //Fields
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
-    private Long productId;
-    private String productNaam;
-    private String productBeschrijving;
-    private Integer aantalSpelers;
-    private Boolean huurVerkoop;
+    private Long productid;
+    private String productnaam;
+    private String productbeschrijving;
+    private Integer aantalspelers;
+    private Boolean huurverkoop;
     private Double prijs;
     private Integer stock;
 
@@ -31,13 +31,13 @@ public class Product {
     public Product() {
     }
 
-    public Product(Long productId, String productNaam, String productBeschrijving, Integer aantalSpelers,
-                   Boolean huurVerkoop, Double prijs, Integer stock, List<ProductCategorie> productCategorie, List<BestellingProduct> bestellingProduct) {
-        this.productId = productId;
-        this.productNaam = productNaam;
-        this.productBeschrijving = productBeschrijving;
-        this.aantalSpelers = aantalSpelers;
-        this.huurVerkoop = huurVerkoop;
+    public Product(Long productid, String productnaam, String productbeschrijving, Integer aantalspelers,
+                   Boolean huurverkoop, Double prijs, Integer stock, List<ProductCategorie> productCategorie, List<BestellingProduct> bestellingProduct) {
+        this.productid = productid;
+        this.productnaam = productnaam;
+        this.productbeschrijving = productbeschrijving;
+        this.aantalspelers = aantalspelers;
+        this.huurverkoop = huurverkoop;
         this.prijs = prijs;
         this.stock = stock;
         this.productCategorie = productCategorie;
@@ -46,44 +46,44 @@ public class Product {
 
     //Getters & Setters
 
-    public Long getProductId() {
-        return productId;
+    public Long getproductid() {
+        return productid;
     }
 
-    public void setProductId(Long productId) {
-        this.productId = productId;
+    public void setproductid(Long productid) {
+        this.productid = productid;
     }
 
-    public String getProductNaam() {
-        return productNaam;
+    public String getproductnaam() {
+        return productnaam;
     }
 
-    public void setProductNaam(String productNaam) {
-        this.productNaam = productNaam;
+    public void setproductnaam(String productnaam) {
+        this.productnaam = productnaam;
     }
 
-    public String getProductBeschrijving() {
-        return productBeschrijving;
+    public String getproductbeschrijving() {
+        return productbeschrijving;
     }
 
-    public void setProductBeschrijving(String productBeschrijving) {
-        this.productBeschrijving = productBeschrijving;
+    public void setproductbeschrijving(String productbeschrijving) {
+        this.productbeschrijving = productbeschrijving;
     }
 
-    public Integer getAantalSpelers() {
-        return aantalSpelers;
+    public Integer getaantalspelers() {
+        return aantalspelers;
     }
 
-    public void setAantalSpelers(Integer aantalSpelers) {
-        this.aantalSpelers = aantalSpelers;
+    public void setaantalspelers(Integer aantalspelers) {
+        this.aantalspelers = aantalspelers;
     }
 
-    public Boolean getHuurVerkoop() {
-        return huurVerkoop;
+    public Boolean gethuurverkoop() {
+        return huurverkoop;
     }
 
-    public void setHuurVerkoop(Boolean huurVerkoop) {
-        this.huurVerkoop = huurVerkoop;
+    public void sethuurverkoop(Boolean huurverkoop) {
+        this.huurverkoop = huurverkoop;
     }
 
     public Double getPrijs() {

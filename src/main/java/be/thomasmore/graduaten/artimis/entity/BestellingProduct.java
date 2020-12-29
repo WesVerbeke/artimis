@@ -10,7 +10,7 @@ public class BestellingProduct {
     //Fields
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long bestellingProductId;
+    private Long bestellingproductid;
     private Integer aantal;
     private Date einddatum;
 
@@ -25,8 +25,8 @@ public class BestellingProduct {
     public BestellingProduct() {
     }
 
-    public BestellingProduct(Long bestellingProductId, Integer aantal, Product product, Bestelling bestelling) {
-        this.bestellingProductId = bestellingProductId;
+    public BestellingProduct(Long bestellingproductid, Integer aantal, Product product, Bestelling bestelling) {
+        this.bestellingproductid = bestellingproductid;
         this.aantal = aantal;
         this.product = product;
         this.bestelling = bestelling;
@@ -35,9 +35,9 @@ public class BestellingProduct {
 
     //Getters & Setters
 
-    public Long getBestellingProductId() { return bestellingProductId; }
+    public Long getbestellingproductid() { return bestellingproductid; }
 
-    public void setBestellingProductId(Long bestellingProductId) { this.bestellingProductId = bestellingProductId; }
+    public void setbestellingproductid(Long bestellingproductid) { this.bestellingproductid = bestellingproductid; }
 
     public Integer getAantal() { return aantal; }
 

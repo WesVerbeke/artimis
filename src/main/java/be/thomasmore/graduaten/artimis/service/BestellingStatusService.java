@@ -5,7 +5,7 @@ import be.thomasmore.graduaten.artimis.entity.BestellingStatus;
 import java.util.List;
 
 public interface BestellingStatusService {
-    BestellingStatus getBestellingStatusById(Long bestellingStatusId);
+    BestellingStatus getBestellingStatusById(Long bestellingstatusid);
     public List<BestellingStatus> getBestellingStatussen();
     BestellingStatus addBestellingStatus(BestellingStatus bestellingStatus);
 }

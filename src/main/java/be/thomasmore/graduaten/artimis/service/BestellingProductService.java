@@ -5,9 +5,9 @@ import be.thomasmore.graduaten.artimis.entity.BestellingProduct;
 import java.util.List;
 
 public interface BestellingProductService {
-    BestellingProduct getBestellingProductById(Long bestellingProductId);
+    BestellingProduct getBestellingProductById(Long bestellingproductid);
     public List<BestellingProduct> getBestellingProducten();
-    public List<BestellingProduct> getBestellingProductenByBestelling(Long bestellingId);
-    public List<BestellingProduct> getBestellingProductenByProduct(Long productId);
+    public List<BestellingProduct> getBestellingProductenByBestelling(Long bestellingid);
+    public List<BestellingProduct> getBestellingProductenByProduct(Long productid);
     BestellingProduct addBestellingProduct(BestellingProduct bestellingProduct);
 }

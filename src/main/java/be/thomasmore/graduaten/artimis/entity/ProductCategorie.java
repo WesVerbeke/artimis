@@ -9,7 +9,7 @@ public class ProductCategorie {
     //Fields
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
-    private Long productCategorieId;
+    private Long productcategorieid;
 
     //Many to One relations with other entities
     @ManyToOne
@@ -22,17 +22,17 @@ public class ProductCategorie {
     public ProductCategorie() {
     }
 
-    public ProductCategorie(Long productCategorieId, Product product, Categorie categorie) {
-        this.productCategorieId = productCategorieId;
+    public ProductCategorie(Long productcategorieid, Product product, Categorie categorie) {
+        this.productcategorieid = productcategorieid;
         this.product = product;
         this.categorie = categorie;
     }
 
     //Getters & Setters
 
-    public Long getProductCategorieId() { return productCategorieId; }
+    public Long getProductcategorieid() { return productcategorieid; }
 
-    public void setProductCategorieId(Long productCategorieId) { this.productCategorieId = productCategorieId; }
+    public void setProductcategorieid(Long productcategorieid) { this.productcategorieid = productcategorieid; }
 
     public Product getProduct() { return product; }
 

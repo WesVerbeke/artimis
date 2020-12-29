@@ -13,8 +13,8 @@ public class BestellingStatusServiceImpl implements BestellingStatusService {
     BestellingStatusRepository bestellingStatusRepository;
 
     @Override
-    public BestellingStatus getBestellingStatusById(Long bestellingStatusId) {
-        return bestellingStatusRepository.getOne(bestellingStatusId);
+    public BestellingStatus getBestellingStatusById(Long bestellingstatusid) {
+        return bestellingStatusRepository.getOne(bestellingstatusid);
     }
 
     @Override

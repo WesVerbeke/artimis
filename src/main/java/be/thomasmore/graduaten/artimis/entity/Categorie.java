@@ -10,7 +10,7 @@ public class Categorie {
     //Fields
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
-    private Long categorieId;
+    private Long categorieid;
     private String categorienaam;
 
     //One to Many relations with other entities
@@ -21,26 +21,26 @@ public class Categorie {
     public Categorie() {
     }
 
-    public Categorie(Long categorieId, String categorienaam, List<ProductCategorie> productCategorie) {
-        this.categorieId = categorieId;
+    public Categorie(Long categorieid, String categorienaam, List<ProductCategorie> productCategorie) {
+        this.categorieid = categorieid;
         this.categorienaam = categorienaam;
         this.productCategorie = productCategorie;
     }
 
     //Getters & Setters
-    public Long getCategorieId() {
-        return categorieId;
+    public Long getcategorieid() {
+        return categorieid;
     }
 
-    public void setCategorieId(Long categorieId) {
-        this.categorieId = categorieId;
+    public void setcategorieid(Long categorieid) {
+        this.categorieid = categorieid;
     }
 
-    public String getCategorieNaam() {
+    public String getcategorienaam() {
         return categorienaam;
     }
 
-    public void setCategorieNaam(String categorienaam) {
+    public void setcategorienaam(String categorienaam) {
         this.categorienaam = categorienaam;
     }
 

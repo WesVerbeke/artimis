@@ -15,7 +15,7 @@
 
     <%--
         Categorie categorie = (Categorie) request.getAttribute("Categorie");
-        out.print("<p>Naam categorie: " + categorie.getCategorieNaam() + "</p>");
+        out.print("<p>Naam categorie: " + categorie.getcategorienaam() + "</p>");
     --%>
 
     <p>

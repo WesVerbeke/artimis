@@ -7,7 +7,7 @@ import java.util.List;
 public class Klant {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long klantId;
+    private Long klantid;
     private String voornaam;
     private String achternaam;
     private String geboortedatum;
@@ -22,9 +22,9 @@ public class Klant {
     //Constructor
     public Klant() {} //default constructor
 
-    public Klant(Long klantId, String voornaam, String achternaam, String geboortedatum, String email,
+    public Klant(Long klantid, String voornaam, String achternaam, String geboortedatum, String email,
                  String gebruikersnaam, String wachtwoord, List<Bestelling> bestellingen) {
-        this.klantId = klantId;
+        this.klantid = klantid;
         this.voornaam = voornaam;
         this.achternaam = achternaam;
         this.geboortedatum = geboortedatum;
@@ -34,12 +34,12 @@ public class Klant {
         this.bestellingen = bestellingen;
     }
 
-    public Long getKlantId() {
-        return klantId;
+    public Long getklantid() {
+        return klantid;
     }
 
-    public void setKlantId(Long klantId) {
-        this.klantId = klantId;
+    public void setklantid(Long klantid) {
+        this.klantid = klantid;
     }
 
     public String getVoornaam() {

@@ -14,7 +14,7 @@ public class PlaatsServiceImpl implements PlaatsService {
     PlaatsRepository plaatsRepository;
 
     @Override
-    public Plaats getPlaatsById(Long plaatsId) { return plaatsRepository.getOne(plaatsId); }
+    public Plaats getPlaatsById(Long plaatsid) { return plaatsRepository.getOne(plaatsid); }
 
     @Override
     public List<Plaats> getPlaatsen() {

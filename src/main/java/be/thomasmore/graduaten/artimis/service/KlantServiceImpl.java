@@ -15,7 +15,7 @@ public class KlantServiceImpl implements KlantService{
     KlantRepository klantRepository;
 
     @Override
-    public Klant getKlantById(Long klantId) { return klantRepository.getOne(klantId); }
+    public Klant getKlantById(Long klantid) { return klantRepository.getOne(klantid); }
 
     @Override
     public List<Klant> getKlanten() { return klantRepository.findAll(); }

@@ -1,14 +1,14 @@
 CREATE TABLE IF NOT EXISTS Categorie(
-                          categorieId INT not null AUTO_INCREMENT,
-                          categorieNaam NVARCHAR(250) NOT NULL,
-                          PRIMARY KEY(categorieId)
+                          categorieid INT not null AUTO_INCREMENT,
+                          categorienaam NVARCHAR(250) NOT NULL,
+                          PRIMARY KEY(categorieid)
 );
 
-insert into Categorie(categorieNaam)
+insert into Categorie(categorienaam)
 values ('1 player');
 
-insert into Categorie(categorieNaam)
+insert into Categorie(categorienaam)
 values ('2 players');
 
-insert into Categorie(categorieNaam)
+insert into Categorie(categorienaam)
 values ('family');

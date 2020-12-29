@@ -15,7 +15,7 @@ public class BestellingServiceImpl implements BestellingService {
     BestellingRepository bestellingRepository;
 
     @Override
-    public Bestelling getBestellingById(Long bestellingId) { return bestellingRepository.getOne(bestellingId); }
+    public Bestelling getBestellingById(Long bestellingid) { return bestellingRepository.getOne(bestellingid); }
 
     @Override
     public List<Bestelling> getBestellingen() { return bestellingRepository.findAll(); }

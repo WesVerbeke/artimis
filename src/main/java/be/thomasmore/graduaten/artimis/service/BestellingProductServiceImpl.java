@@ -17,15 +17,15 @@ public class BestellingProductServiceImpl implements BestellingProductService {
     BestellingProductRepository bestellingProductRepository;
 
     @Override
-    public BestellingProduct getBestellingProductById(Long bestellingProductId) {
-        return bestellingProductRepository.getOne(bestellingProductId);
+    public BestellingProduct getBestellingProductById(Long bestellingproductid) {
+        return bestellingProductRepository.getOne(bestellingproductid);
     }
 
     @Override
     public List<BestellingProduct> getBestellingProducten() { return bestellingProductRepository.findAll(); }
 
     @Override
-    public List<BestellingProduct> getBestellingProductenByBestelling(Long bestellingId) {
+    public List<BestellingProduct> getBestellingProductenByBestelling(Long bestellingid) {
         //lijst met alle BestellingProducten opvragen
         List<BestellingProduct> lijstBestellingProducten = bestellingProductRepository.findAll();
 
@@ -34,20 +34,20 @@ public class BestellingProductServiceImpl implements BestellingProductService {
 
         for (BestellingProduct bestellingProduct: lijstBestellingProducten) {
             Bestelling bestelling = bestellingProduct.getBestelling(); //Bestelling opvragen
-            if (bestelling.getBestellingId().equals(bestellingId)) {
+            if (bestelling.getbestellingid().equals(bestellingid)) {
                 lijstGezochteBestellingProducten.add(bestellingProduct);
             }
         }
         return lijstGezochteBestellingProducten;
     }
 
-    public List<BestellingProduct> getBestellingProductenByProduct(Long productId) {
+    public List<BestellingProduct> getBestellingProductenByProduct(Long productid) {
         List<BestellingProduct> lijstBestellingProducten = bestellingProductRepository.findAll();
         List<BestellingProduct> lijstGezochteBestellingProducten = new ArrayList<>();
 
         for (BestellingProduct bestellingProduct: lijstBestellingProducten) {
             Product product = bestellingProduct.getProduct();
-            if (product.getProductId().equals(productId)) {
+            if (product.getproductid().equals(productid)) {
                 lijstGezochteBestellingProducten.add(bestellingProduct);
             }
         }

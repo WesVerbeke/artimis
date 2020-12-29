@@ -22,7 +22,7 @@
         out.print("<table border='1'>");
         out.print("<tr><th>Id</th><th>Naam</th></tr>");
         for (Bestelling bestelling: bestellingen) {
-            out.print("<tr><td>" + bestelling.getBestellingId() + "</td><td>" + bestelling.getKlant() + "</td><td>" + bestelling.getBestellingStatus());
+            out.print("<tr><td>" + bestelling.getbestellingid() + "</td><td>" + bestelling.getKlant() + "</td><td>" + bestelling.getBestellingStatus());
         }
         out.print("</table>");
     --%>

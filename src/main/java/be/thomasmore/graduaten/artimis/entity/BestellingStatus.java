@@ -7,8 +7,8 @@ import java.util.List;
 public class BestellingStatus {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long bestellingStatusId;
-    private String bestellingStatusBeschrijving;
+    private Long bestellingstatusid;
+    private String bestellingstatusbeschrijving;
 
     @OneToMany
     private List <Bestelling> bestelling;
@@ -16,26 +16,26 @@ public class BestellingStatus {
     public BestellingStatus() {
     }
 
-    public BestellingStatus(Long bestellingStatusId, String bestellingStatusBeschrijving, List<Bestelling> bestelling) {
-        this.bestellingStatusId = bestellingStatusId;
-        this.bestellingStatusBeschrijving = bestellingStatusBeschrijving;
+    public BestellingStatus(Long bestellingstatusid, String bestellingstatusbeschrijving, List<Bestelling> bestelling) {
+        this.bestellingstatusid = bestellingstatusid;
+        this.bestellingstatusbeschrijving = bestellingstatusbeschrijving;
         this.bestelling = bestelling;
     }
 
-    public Long getBestellingStatusId() {
-        return bestellingStatusId;
+    public Long getbestellingstatusid() {
+        return bestellingstatusid;
     }
 
-    public void setBestellingStatusId(Long bestellingStatusCode) {
-        this.bestellingStatusId = bestellingStatusCode;
+    public void setbestellingstatusid(Long bestellingStatusCode) {
+        this.bestellingstatusid = bestellingStatusCode;
     }
 
-    public String getBestellingStatusBeschrijving() {
-        return bestellingStatusBeschrijving;
+    public String getbestellingstatusbeschrijving() {
+        return bestellingstatusbeschrijving;
     }
 
-    public void setBestellingStatusBeschrijving(String bestellingStatusBeschrijving) {
-        this.bestellingStatusBeschrijving = bestellingStatusBeschrijving;
+    public void setbestellingstatusbeschrijving(String bestellingstatusbeschrijving) {
+        this.bestellingstatusbeschrijving = bestellingstatusbeschrijving;
     }
 
     public List<Bestelling> getBestelling() {
@@ -48,6 +48,6 @@ public class BestellingStatus {
 
     @Override
     public String toString() {
-        return bestellingStatusId + " " + bestellingStatusBeschrijving;
+        return bestellingstatusid + " " + bestellingstatusbeschrijving;
     }
 }
