@@ -20,13 +20,6 @@ public class Product {
     private Double prijs;
     private Integer stock;
 
-    //OnToMany relations with other entities
-    @OneToMany
-    private List<ProductCategorie> productCategorie;
-
-    @OneToMany
-    private List<BestellingProduct> bestellingProduct;
-
     //Constructors
     public Product() {
     }
@@ -40,8 +33,6 @@ public class Product {
         this.huurverkoop = huurverkoop;
         this.prijs = prijs;
         this.stock = stock;
-        this.productCategorie = productCategorie;
-        this.bestellingProduct = bestellingProduct;
     }
 
     //Getters & Setters
@@ -102,19 +93,4 @@ public class Product {
         this.stock = stock;
     }
 
-    public List<ProductCategorie> getProductCategorie() {
-        return productCategorie;
-    }
-
-    public void setProductCategorie(List<ProductCategorie> productCategorie) {
-        this.productCategorie = productCategorie;
-    }
-
-    public List<BestellingProduct> getBestellingProduct() {
-        return bestellingProduct;
-    }
-
-    public void setBestellingProduct(List<BestellingProduct> bestellingProduct) {
-        this.bestellingProduct = bestellingProduct;
-    }
 }

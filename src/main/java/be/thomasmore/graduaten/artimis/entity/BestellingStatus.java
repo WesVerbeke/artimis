@@ -10,16 +10,12 @@ public class BestellingStatus {
     private Long bestellingstatusid;
     private String bestellingstatusbeschrijving;
 
-    @OneToMany
-    private List <Bestelling> bestelling;
-
     public BestellingStatus() {
     }
 
     public BestellingStatus(Long bestellingstatusid, String bestellingstatusbeschrijving, List<Bestelling> bestelling) {
         this.bestellingstatusid = bestellingstatusid;
         this.bestellingstatusbeschrijving = bestellingstatusbeschrijving;
-        this.bestelling = bestelling;
     }
 
     public Long getbestellingstatusid() {
@@ -36,14 +32,6 @@ public class BestellingStatus {
 
     public void setbestellingstatusbeschrijving(String bestellingstatusbeschrijving) {
         this.bestellingstatusbeschrijving = bestellingstatusbeschrijving;
-    }
-
-    public List<Bestelling> getBestelling() {
-        return bestelling;
-    }
-
-    public void setBestelling(List<Bestelling> bestelling) {
-        this.bestelling = bestelling;
     }
 
     @Override

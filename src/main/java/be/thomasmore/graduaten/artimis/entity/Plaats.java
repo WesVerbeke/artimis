@@ -11,8 +11,6 @@ public class Plaats {
     private String postcode;
     private String gemeente;
 
-    @OneToMany
-    private List<Bestelling> bestellingen;
 
     public Plaats() {
     }
@@ -21,7 +19,6 @@ public class Plaats {
         this.plaatsid = plaatsid;
         this.postcode = postcode;
         this.gemeente = gemeente;
-        this.bestellingen = bestellingen;
     }
 
     public Long getplaatsid() {
@@ -46,14 +43,6 @@ public class Plaats {
 
     public void setGemeente(String gemeente) {
         this.gemeente = gemeente;
-    }
-
-    public List<Bestelling> getBestellingen() {
-        return bestellingen;
-    }
-
-    public void setBestellingen(List<Bestelling> bestellingen) {
-        this.bestellingen = bestellingen;
     }
 
     @Override

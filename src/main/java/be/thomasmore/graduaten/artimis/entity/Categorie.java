@@ -13,10 +13,6 @@ public class Categorie {
     private Long categorieid;
     private String categorienaam;
 
-    //One to Many relations with other entities
-    @OneToMany
-    private List<ProductCategorie> productCategorie;
-
     //Constructors
     public Categorie() {
     }
@@ -24,7 +20,6 @@ public class Categorie {
     public Categorie(Long categorieid, String categorienaam, List<ProductCategorie> productCategorie) {
         this.categorieid = categorieid;
         this.categorienaam = categorienaam;
-        this.productCategorie = productCategorie;
     }
 
     //Getters & Setters
@@ -42,13 +37,5 @@ public class Categorie {
 
     public void setcategorienaam(String categorienaam) {
         this.categorienaam = categorienaam;
-    }
-
-    public List<ProductCategorie> getProductCategorie() {
-        return productCategorie;
-    }
-
-    public void setProductCategorie(List<ProductCategorie> productCategorie) {
-        this.productCategorie = productCategorie;
     }
 }

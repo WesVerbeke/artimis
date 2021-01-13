@@ -22,9 +22,6 @@ public class Klant {
     private String gebruikersnaam;
     private String wachtwoord;
 
-    @OneToMany
-    private List<Bestelling> bestellingen;
-
     //Constructor
     public Klant() {} //default constructor
 
@@ -37,7 +34,6 @@ public class Klant {
         this.email = email;
         this.gebruikersnaam = gebruikersnaam;
         this.wachtwoord = wachtwoord;
-        this.bestellingen = bestellingen;
     }
 
     public Long getklantid() {
