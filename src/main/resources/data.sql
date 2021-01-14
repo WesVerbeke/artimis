@@ -5,23 +5,23 @@ CREATE TABLE IF NOT EXISTS UITGEVER(
     PRIMARY KEY (uitgeverid)
 );
 
-//uitgever Monopoly
+--uitgever Monopoly
 INSERT INTO UITGEVER(uitgevernaam)
 VALUES ( 'Parker Brothers' );
 
-//uitgever Schaakset
+--uitgever Schaakset
 INSERT INTO UITGEVER(uitgevernaam)
 VALUES ( 'Pucon' );
 
-//uitgever Catan en De Weerwolven van Wakkerdam (toevoegen in demo)
+--uitgever Catan en De Weerwolven van Wakkerdam (toevoegen in demo)
 INSERT INTO UITGEVER(uitgevernaam)
 VALUES ( '999 Games' );
 
-//uitgever Stratego
+--uitgever Stratego
 INSERT INTO UITGEVER(uitgevernaam)
 VALUES ( 'Jumbo' );
 
-//uitgever Risk
+--uitgever Risk
 INSERT INTO UITGEVER(uitgevernaam)
 VALUES ( 'Hasbro Gaming' );
 
@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS TAAL(
     PRIMARY KEY (taalid)
 );
 
-//talen invoeren
+--talen invoeren
 INSERT INTO TAAL(taalnaam)
 VALUES ('Nederlands');
 
@@ -129,11 +129,11 @@ CREATE TABLE IF NOT EXISTS KLANT(
     PRIMARY KEY (klantid)
 );
 
-//Beheerder aanmaken
+--Beheerder aanmaken
 INSERT INTO KLANT(voornaam, achternaam, geboortedatum, adres, Plaats_plaatsid, email, gebruikersnaam, wachtwoord, beheerder)
 VALUES ('Dries','Vandoorne', PARSEDATETIME('22-01-1989','dd-MM-yyyy'), 'Westelsebaan 63', 2, 'r0607003@student.thomasmore.be','DriesVandoorne','DV', 1);
 
-//Klant aanmaken
+--Klant aanmaken
 INSERT INTO KLANT(voornaam, achternaam, geboortedatum, adres, Plaats_plaatsid, email, gebruikersnaam, wachtwoord, beheerder)
 VALUES ('Joske','Vermeulen', PARSEDATETIME('02-09-1981','dd-MM-yyyy'), 'Trammezandlei 122', 1, 'joskevermeulen@gmail.com','JoskeVermeulen','JV', 0);
 
