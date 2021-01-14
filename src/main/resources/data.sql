@@ -41,6 +41,9 @@ VALUES ('Duits');
 INSERT INTO TAAL(taal)
 VALUES ('Engels');
 
+INSERT INTO TAAL(taal)
+VALUES ('Alle talen');
+
 --UITGEVER
 CREATE TABLE IF NOT EXISTS UITGEVER(
     uitgeverid INT NOT NULL  AUTO_INCREMENT,
@@ -77,57 +80,33 @@ CREATE TABLE IF NOT EXISTS PRODUCT(
     aantalspelers INT NOT NULL,
     minimumleeftijd INT NOT NULL,
     Taal_taalid INT NOT NULL,
-    huurverkoop BIT NOT NULL,
-    prijs FLOAT,
-    stock INT
+    Uitgever_uitgeverid INT NOT NULL,
+    prijs FLOAT NOT NULL,
+    prijshuur FLOAT NOT NULL,
+    stockverkoop INT,
+    stockhuur INT,
+    PRIMARY KEY (productid)
 );
 
---monopoly om te verhuren (huurverkoop 0)
-INSERT INTO PRODUCT(productnaam, productbeschrijving, aantalspelers, huurverkoop, prijs, stock)
-VALUES ('Monopoly', 'Het klassieke bordspel voor de ganse familie. Kan gespeeld worden met 2 tot 8 spelers. Geschikt voor kinderen vanaf 8 jaar. Je kan dit spel kopen en uithuren.', 8, 0, 4.99, 20);
+--monopoly
+INSERT INTO PRODUCT(productnaam, productbeschrijving, afbeelding, aantalspelers, minimumleeftijd, Taal_taalid, Uitgever_uitgeverid, prijs, prijshuur, stockverkoop, stockhuur)
+VALUES('Monopoly', 'Het klassieke bordspel voor de ganse familie. Kan gespeeld worden met 2 tot 6 spelers.', 'https://i.imgur.com/rZe0nYl.jpg', 6, 8, 1, 1, 33.25, 4.99, 150, 15);
 
---monopoly om te verkopen (huurverkoop 1) -> ik stel deze waardes voor bij de bool (BIT) huurverkoop
-INSERT INTO PRODUCT(productnaam, productbeschrijving, aantalspelers, huurverkoop, prijs, stock)
-VALUES ('Monopoly', 'Het klassieke bordspel voor de ganse familie. Kan gespeeld worden met 2 tot 8 spelers. Geschikt voor kinderen vanaf 8 jaar. Je kan dit spel kopen en uithuren.', 8, 1, 24.99, 200);
+--schaakspel
+INSERT INTO PRODUCT(productnaam, productbeschrijving, afbeelding, aantalspelers, minimumleeftijd, Taal_taalid, Uitgever_uitgeverid, prijs, prijshuur, stockverkoop, stockhuur)
+VALUES ( 'Schaakspel', 'Het klassieke strategische bordspel. Stukken en bord inbegrepen.', 'https://i.imgur.com/cuANgNG.jpg', 2, 3, 5, 2, 53.19, 7.5, 100, 10 );
 
---schaakspel om te verkopen (huurverkoop 1)
-INSERT INTO PRODUCT(productnaam, productbeschrijving, aantalspelers, huurverkoop, prijs, stock)
-VALUES ('Schaak', 'Het klassieke strategische bordspel. Stukken en bord inbegrepen. Enkel beschikbaar voor verkoop.', 2, 1, 39.27, 150);
+--catan
+INSERT INTO PRODUCT(productnaam, productbeschrijving, afbeelding, aantalspelers, minimumleeftijd, Taal_taalid, Uitgever_uitgeverid, prijs, prijshuur, stockverkoop, stockhuur)
+VALUES ( 'Catan', 'Het Catan basisspel is de nieuwste editie van het bekende handelsspel. Het spel bevat nu miniaturen en ook het artwork is volledig aangepast. Voor 3 tot 4 spelers.', 'https://i.imgur.com/ewNTbMX.jpg', 4, 10, 1, 3, 35.99, 4.99, 50, 5);
 
---PRODUCT_CATEGORIE
-CREATE TABLE IF NOT EXISTS PRODUCT_CATEGORIE
-(
-    productcategorieid INT NOT NULL AUTO_INCREMENT,
-    Product_productid          INT NOT NULL,
-    Categorie_categorieid       INT NOT NULL,
-    primary key (productcategorieid)
-);
+--stratego
+INSERT INTO PRODUCT(productnaam, productbeschrijving, afbeelding, aantalspelers, minimumleeftijd, Taal_taalid, Uitgever_uitgeverid, prijs, prijshuur, stockverkoop, stockhuur)
+VALUES ( 'Stratego', 'Val aan en verover de vlag! Ontmantel de bommen en laat je maarschalk zegevieren!', 'https://i.imgur.com/TqiL1NL.jpg', 2, 8, 5, 4, 21.99, 3.99, 300, 30);
 
---ProductCategoriën koppelen met de juiste producten en categoriën
-    --one-to many vanuit de tussentabel, ik weet momenteel nog niet of ik dan ook de many-to-one moet uitschrijven!!! zijn momenteel niet opgevuld!!!
-    --we gaan dit ofwel moeten uitschrijven voor alle many-to-ones, ofwel die many-to-ones eruit gooien, maar Joeri zei dat dat juist was dus.
-    --ik vind de tussentabellen daarvoor persoonlijk maar vreemd.
-
---Monopoly huur voor zowel familie als kinderen
-INSERT INTO PRODUCT_CATEGORIE(Product_productid, Categorie_categorieid)
-VALUES (1, 3);
-
-INSERT INTO PRODUCT_CATEGORIE(Product_productid, Categorie_categorieid)
-VALUES (1, 1);
-
---Monopoly verkoop voor zowel familie als kinderen
-INSERT INTO PRODUCT_CATEGORIE(Product_productid, Categorie_categorieid)
-VALUES (2, 3);
-
-INSERT INTO PRODUCT_CATEGORIE(Product_productid, Categorie_categorieid)
-VALUES (2, 1);
-
---Schaak voor zowel kinderen als volwassenen
-INSERT INTO PRODUCT_CATEGORIE(Product_productid, Categorie_categorieid)
-VALUES (3, 1);
-
-INSERT INTO PRODUCT_CATEGORIE(Product_productid, Categorie_categorieid)
-VALUES (3, 2);
+--risk
+INSERT INTO PRODUCT(productnaam, productbeschrijving, afbeelding, aantalspelers, minimumleeftijd, Taal_taalid, Uitgever_uitgeverid, prijs, prijshuur, stockverkoop, stockhuur)
+VALUES ( 'Risk', 'Grote spelklassieker! Probeer je missie in goede banen te leiden of de wereld te veroveren! Met 360 3D-figuurtjes en 3 spelwijzen. Voor 2 tot 4 spelers.', 'https://i.imgur.com/Q9D2OzD.jpg', 4, 10, 4, 5, 59.08, 7.5, 250, 25);
 
 --PLAATS
 CREATE TABLE IF NOT EXISTS PLAATS
@@ -135,16 +114,50 @@ CREATE TABLE IF NOT EXISTS PLAATS
     plaatsid INT NOT NULL AUTO_INCREMENT,
     postcode          NVARCHAR(10),
     gemeente       NVARCHAR(100),
-    primary key (plaatsid)
+    PRIMARY KEY (plaatsid)
 );
 
 --gemeente van Joske Vermeulen toevoegen
 INSERT INTO PLAATS(postcode, gemeente)
-VALUES (2900, 'Schoten');
+VALUES ('2900', 'Schoten');
 
 --Scherpenheuvel-Zichem
 INSERT INTO PLAATS(postcode, gemeente)
-VALUES (3271, 'Scherpenheuvel-Zichem');
+VALUES ('3271', 'Scherpenheuvel-Zichem');
+
+--Scherpenheuvel-Zichem
+INSERT INTO PLAATS(postcode, gemeente)
+VALUES ('3272', 'Scherpenheuvel-Zichem');
+
+--Geel
+INSERT INTO PLAATS(postcode, gemeente)
+VALUES ( '2440', 'Geel' );
+
+--Turnhout
+INSERT INTO PLAATS(postcode, gemeente)
+VALUES ( '2300', 'Turnhout' );
+
+--Aarschot
+INSERT INTO PLAATS(postcode, gemeente)
+VALUES ( '3200', 'Aarschot' );
+
+--Aarschot
+INSERT INTO PLAATS(postcode, gemeente)
+VALUES ( '3201', 'Aarschot' );
+
+--Aarschot
+INSERT INTO PLAATS(postcode, gemeente)
+VALUES ( '3202', 'Aarschot' );
+
+--Diest
+INSERT INTO PLAATS(postcode, gemeente)
+VALUES ('3290', 'Diest');
+
+INSERT INTO PLAATS(postcode, gemeente)
+VALUES ('3293', 'Diest');
+
+INSERT INTO PLAATS(postcode, gemeente)
+VALUES ('3294', 'Diest');
 
 --BESTELLINGSTATUS (de underscore hier is aangemaakt door de camelcase naam van de entity, is GEEN tussentabel)
 CREATE TABLE IF NOT EXISTS BESTELLING_STATUS
@@ -156,10 +169,10 @@ CREATE TABLE IF NOT EXISTS BESTELLING_STATUS
 
 --statussen invoeren
 INSERT INTO BESTELLING_STATUS(bestellingstatusbeschrijving)
-VALUES ('betaald');
+VALUES ('onbetaald');
 
 INSERT INTO BESTELLING_STATUS(bestellingstatusbeschrijving)
-VALUES ('onbetaald');
+VALUES ('betaald');
 
 --BESTELLING
 CREATE TABLE IF NOT EXISTS BESTELLING(
