@@ -180,28 +180,27 @@ VALUES ( 'Risk', 'Grote spelklassieker! Probeer je missie in goede banen te leid
 CREATE TABLE IF NOT EXISTS BESTELLING(
     bestellingid INT NOT NULL AUTO_INCREMENT,
     Klant_klantid INT NOT NULL,
-    referentie NVARCHAR(50) NOT NULL,
     bestellingdatum DATE NOT NULL,
-    leveradres NVARCHAR(100) NOT NULL,
-    Plaats_plaatsid INT NOT NULL,
     Bestelling_Status_bestellingstatusid INT NOT NULL,
     primary key (bestellingid)
 );
 
---Joske Vermeulen heeft een bestelling geplaatst maar nog niet betaald (weet niet juist wat we met referentie gaan doen, heb er nu maar iets ingestoken)
-INSERT INTO BESTELLING(klant_klantid, referentie, bestellingdatum, leveradres, plaats_plaatsid, bestelling_status_bestellingstatusid)
-VALUES(1, '00001', PARSEDATETIME('29-12-2020','dd-MM-yyyy'), 'Trammezandlei 122', 1, 2);
+--Joske Vermeulen heeft een bestelling geplaatst en betaald
+INSERT INTO BESTELLING(klant_klantid, bestellingdatum, bestelling_status_bestellingstatusid)
+VALUES(1, PARSEDATETIME('29-12-2020','dd-MM-yyyy'), 0);
 
 --BESTELLING_PRODUCT
 CREATE TABLE IF NOT EXISTS BESTELLING_PRODUCT(
     bestellingproductid INT NOT NULL AUTO_INCREMENT,
     Bestelling_bestellingid INT NOT NULL,
     Product_productid INT NOT NULL,
+    huurverkoop BIT NOT NULL,
     aantal INT NOT NULL,
     einddatum DATE NULL,
-    primary key (bestellingproductid)
+    productbijklant BIT NULL,
+    PRIMARY KEY (bestellingproductid)
 );
 
---Joske Vermeulen heeft met die bestelling 1 monopoly gehuurd
-INSERT INTO BESTELLING_PRODUCT(bestelling_bestellingid, product_productid, aantal, einddatum)
-VALUES(1, 1, 1, PARSEDATETIME('12-01-2020','dd-MM-yyyy'));
+--Joske Vermeulen heeft met die bestelling 1 monopoly gehuurd (huurverkoop: 0 is huur, 1 is verkoop / productbijklant: 0 is neen, 1 is ja )
+INSERT INTO BESTELLING_PRODUCT(bestelling_bestellingid, product_productid, huurverkoop, aantal, einddatum, productbijklant)
+VALUES ( 1, 1, 0, 1, PARSEDATETIME('12-01-2020','dd-MM-yyyy'), 0);
