@@ -23,5 +23,4 @@ public class PlaatsServiceImpl implements PlaatsService {
 
     @Override
     public Plaats addPlaats(Plaats plaats) { return plaatsRepository.save(plaats); }
-
 }
