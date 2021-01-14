@@ -33,7 +33,7 @@ public class BestellingProductServiceImpl implements BestellingProductService {
 
         for (BestellingProduct bestellingProduct: lijstBestellingProducten) {
             Bestelling bestelling = bestellingProduct.getBestelling(); //Bestelling opvragen
-            if (bestelling.getbestellingid().equals(bestellingid)) {
+            if (bestelling.getBestellingid().equals(bestellingid)) {
                 lijstGezochteBestellingProducten.add(bestellingProduct);
             }
         }
@@ -46,7 +46,7 @@ public class BestellingProductServiceImpl implements BestellingProductService {
 
         for (BestellingProduct bestellingProduct: lijstBestellingProducten) {
             Product product = bestellingProduct.getProduct();
-            if (product.getproductid().equals(productid)) {
+            if (product.getProductid().equals(productid)) {
                 lijstGezochteBestellingProducten.add(bestellingProduct);
             }
         }
