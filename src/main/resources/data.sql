@@ -4,41 +4,79 @@ CREATE TABLE IF NOT EXISTS KLANT(
     voornaam NVARCHAR(50) NOT NULL,
     achternaam NVARCHAR(50) NOT NULL,
     geboortedatum DATE NOT NULL,
+    adres NVARCHAR(200) NOT NULL,
+    Plaats_plaatsid INT NOT NULL,
     email NVARCHAR(100) NOT NULL,
-    telefoon NVARCHAR(15) NULL,
     gebruikersnaam NVARCHAR(100) NOT NULL,
     wachtwoord NVARCHAR(250) NOT NULL,
+    beheerder BIT NOT NULL,
     PRIMARY KEY (klantid)
 );
 
-INSERT INTO KLANT (voornaam, achternaam, geboortedatum, email, telefoon, gebruikersnaam, wachtwoord)
-VALUES ('Joske','Vermeulen', PARSEDATETIME('02-09-1981','dd-MM-yyyy'),'joskevermeulen@gmail.com','068/80 12 34','JoskeVermeulen','JV');
+//Beheerder aanmaken
+INSERT INTO KLANT(voornaam, achternaam, geboortedatum, adres, Plaats_plaatsid, email, gebruikersnaam, wachtwoord, beheerder)
+VALUES ('Dries','Vandoorne', PARSEDATETIME('22-01-1989','dd-MM-yyyy'), 'Westelsebaan 63', 2, 'r0607003@student.thomasmore.be','DriesVandoorne','DV', 1);
 
---CATEGORIE
-CREATE TABLE IF NOT EXISTS CATEGORIE(
-    categorieid INT not null AUTO_INCREMENT,
-    categorienaam NVARCHAR(50) NOT NULL,
-    PRIMARY KEY(categorieid)
+//Klant aanmaken
+INSERT INTO KLANT(voornaam, achternaam, geboortedatum, adres, Plaats_plaatsid, email, gebruikersnaam, wachtwoord, beheerder)
+VALUES ('Joske','Vermeulen', PARSEDATETIME('02-09-1981','dd-MM-yyyy'), 'Trammezandlei 122', 1, 'joskevermeulen@gmail.com','JoskeVermeulen','JV', 0);
+
+--TAAL
+CREATE TABLE IF NOT EXISTS TAAL(
+    taalid INT NOT NULL  AUTO_INCREMENT,
+    taal NVARCHAR(100) NOT NULL,
+    PRIMARY KEY (taalid)
 );
 
-insert into CATEGORIE(categorienaam)
-values ('kinderen');
+//talen invoeren
+INSERT INTO TAAL(taal)
+VALUES ('Nederlands');
 
-insert into CATEGORIE(categorienaam)
-values ('volwassenen');
+INSERT INTO TAAL(taal)
+VALUES ('Frans');
 
-insert into CATEGORIE(categorienaam)
-values ('familie');
+INSERT INTO TAAL(taal)
+VALUES ('Duits');
 
-insert into CATEGORIE(categorienaam)
-values ('gadgets');
+INSERT INTO TAAL(taal)
+VALUES ('Engels');
+
+--UITGEVER
+CREATE TABLE IF NOT EXISTS UITGEVER(
+    uitgeverid INT NOT NULL  AUTO_INCREMENT,
+    uitgever NVARCHAR(200) NOT NULL,
+    PRIMARY KEY (uitgeverid)
+);
+
+//uitgever Monopoly
+INSERT INTO UITGEVER(uitgever)
+VALUES('Parker Brothers');
+
+//uitgever Schaakset
+INSERT INTO UITGEVER(uitgever)
+VALUES ( 'Pucon' );
+
+//uitgever Catan en De Weerwolven van Wakkerdam (toevoegen in demo)
+INSERT INTO UITGEVER(uitgever)
+VALUES ( '999 Games' );
+
+//uitgever Stratego
+INSERT INTO UITGEVER(uitgever)
+VALUES ( 'Jumbo' );
+
+//uitgever Risk
+INSERT INTO UITGEVER(uitgever)
+VALUES ( 'Hasbro Gaming' );
 
 --PRODUCT
 CREATE TABLE IF NOT EXISTS PRODUCT(
     productid INT NOT NULL AUTO_INCREMENT,
     productnaam NVARCHAR(100) NOT NULL,
     productbeschrijving NVARCHAR(250) NOT NULL,
+    afbeelding NVARCHAR(300) NOT NULL,
     aantalspelers INT NOT NULL,
+    minimumleeftijd INT NOT NULL,
+    Taal_taalid INT NOT NULL,
     huurverkoop BIT NOT NULL,
     prijs FLOAT,
     stock INT
@@ -103,6 +141,10 @@ CREATE TABLE IF NOT EXISTS PLAATS
 --gemeente van Joske Vermeulen toevoegen
 INSERT INTO PLAATS(postcode, gemeente)
 VALUES (2900, 'Schoten');
+
+--Scherpenheuvel-Zichem
+INSERT INTO PLAATS(postcode, gemeente)
+VALUES (3271, 'Scherpenheuvel-Zichem');
 
 --BESTELLINGSTATUS (de underscore hier is aangemaakt door de camelcase naam van de entity, is GEEN tussentabel)
 CREATE TABLE IF NOT EXISTS BESTELLING_STATUS
