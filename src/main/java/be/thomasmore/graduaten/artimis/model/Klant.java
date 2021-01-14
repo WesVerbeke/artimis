@@ -25,15 +25,19 @@ public class Klant {
     private String wachtwoord;
     private Boolean beheerder;
 
+    @ManyToOne
+    private Plaats plaats;
+
     //Constructor
     public Klant() {
     }
 
-    public Klant(String voornaam, String achternaam, String geboortedatum, String adres, String email, String gebruikersnaam, String wachtwoord, Boolean beheerder) {
+    public Klant(String voornaam, String achternaam, String geboortedatum, String adres, Plaats plaats, String email, String gebruikersnaam, String wachtwoord, Boolean beheerder) {
         this.voornaam = voornaam;
         this.achternaam = achternaam;
         this.geboortedatum = geboortedatum;
         this.adres = adres;
+        this.plaats = plaats;
         this.email = email;
         this.gebruikersnaam = gebruikersnaam;
         this.wachtwoord = wachtwoord;
@@ -81,6 +85,14 @@ public class Klant {
 
     public void setAdres(String adres) {
         this.adres = adres;
+    }
+
+    public Plaats getPlaats() {
+        return plaats;
+    }
+
+    public void setPlaats(Plaats plaats) {
+        this.plaats = plaats;
     }
 
     public String getEmail() {
