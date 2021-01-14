@@ -1,20 +1,17 @@
 package be.thomasmore.graduaten.artimis.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Taal {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long taalid;
-    private String taal;
+    private String taalnaam;
 
     //constructors
-    public Taal(String taal) {
-        this.taal = taal;
+    public Taal(String taalnaam) {
+        this.taalnaam = taalnaam;
     }
 
     public Taal() {
@@ -25,15 +22,15 @@ public class Taal {
         return taalid;
     }
 
-    public void setTaalid(Long uitgeverid) {
+    public void setTaalid(Long taalid) {
         this.taalid = taalid;
     }
 
-    public String getTaal() {
-        return taal;
+    public String getTaalnaam() {
+        return taalnaam;
     }
 
-    public void setTaal(String uitgever) {
-        this.taal = taal;
+    public void setTaalnaam(String taalnaam) {
+        this.taalnaam = taalnaam;
     }
 }

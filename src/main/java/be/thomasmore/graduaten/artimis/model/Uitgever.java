@@ -1,26 +1,24 @@
 package be.thomasmore.graduaten.artimis.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Uitgever {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long uitgeverid;
-    private String uitgever;
+    private String uitgevernaam;
 
     //constructors
-    public Uitgever(String uitgever) {
-        this.uitgever = uitgever;
-    }
-
     public Uitgever() {
     }
 
+    public Uitgever(String uitgevernaam) {
+        this.uitgevernaam = uitgevernaam;
+    }
+
     //getters en setters
+
     public Long getUitgeverid() {
         return uitgeverid;
     }
@@ -29,11 +27,11 @@ public class Uitgever {
         this.uitgeverid = uitgeverid;
     }
 
-    public String getUitgever() {
-        return uitgever;
+    public String getUitgevernaam() {
+        return uitgevernaam;
     }
 
-    public void setUitgever(String uitgever) {
-        this.uitgever = uitgever;
+    public void setUitgevernaam(String uitgevernaam) {
+        this.uitgevernaam = uitgevernaam;
     }
 }
