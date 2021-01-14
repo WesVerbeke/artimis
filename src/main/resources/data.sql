@@ -187,7 +187,7 @@ CREATE TABLE IF NOT EXISTS BESTELLING(
 
 --Joske Vermeulen heeft een bestelling geplaatst en betaald
 INSERT INTO BESTELLING(klant_klantid, bestellingdatum, bestelling_status_bestellingstatusid)
-VALUES(1, PARSEDATETIME('29-12-2020','dd-MM-yyyy'), 0);
+VALUES(1, PARSEDATETIME('29-12-2020','dd-MM-yyyy'), 1);
 
 --BESTELLING_PRODUCT
 CREATE TABLE IF NOT EXISTS BESTELLING_PRODUCT(
