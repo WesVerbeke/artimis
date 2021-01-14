@@ -8,7 +8,6 @@ public class Bestelling {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long bestellingid;
-    private String referentie;
     private Date bestellingdatum;
 
     @ManyToOne
@@ -21,8 +20,7 @@ public class Bestelling {
     public Bestelling() {
     }
 
-    public Bestelling(String referentie, Date bestellingdatum, Klant klant, BestellingStatus bestellingStatus) {
-        this.referentie = referentie;
+    public Bestelling(Date bestellingdatum, Klant klant, BestellingStatus bestellingStatus) {
         this.bestellingdatum = bestellingdatum;
         this.klant = klant;
         this.bestellingStatus = bestellingStatus;
@@ -36,14 +34,6 @@ public class Bestelling {
 
     public void setBestellingid(Long bestellingid) {
         this.bestellingid = bestellingid;
-    }
-
-    public String getReferentie() {
-        return referentie;
-    }
-
-    public void setReferentie(String referentie) {
-        this.referentie = referentie;
     }
 
     public Date getBestellingdatum() {
