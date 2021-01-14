@@ -10,35 +10,31 @@ public class Bestelling {
     private Long bestellingid;
     private String referentie;
     private Date bestellingdatum;
-    private String leveradres;
 
     @ManyToOne
     private Klant klant;
 
     @ManyToOne
-    private Plaats plaats;
-
-    @ManyToOne
     private BestellingStatus bestellingStatus;
 
+    //constructors
     public Bestelling() {
     }
 
-    public Bestelling(Long bestellingid, String referentie, Date bestellingdatum, String leveradres, Klant klant, Plaats plaats, BestellingStatus bestellingStatus) {
-        this.bestellingid = bestellingid;
+    public Bestelling(String referentie, Date bestellingdatum, Klant klant, BestellingStatus bestellingStatus) {
         this.referentie = referentie;
         this.bestellingdatum = bestellingdatum;
-        this.leveradres = leveradres;
         this.klant = klant;
-        this.plaats = plaats;
         this.bestellingStatus = bestellingStatus;
     }
 
-    public Long getbestellingid() {
+    //getters en setters
+
+    public Long getBestellingid() {
         return bestellingid;
     }
 
-    public void setbestellingid(Long bestellingid) {
+    public void setBestellingid(Long bestellingid) {
         this.bestellingid = bestellingid;
     }
 
@@ -50,20 +46,12 @@ public class Bestelling {
         this.referentie = referentie;
     }
 
-    public Date getbestellingdatum() {
+    public Date getBestellingdatum() {
         return bestellingdatum;
     }
 
-    public void setbestellingdatum(Date bestellingdatum) {
+    public void setBestellingdatum(Date bestellingdatum) {
         this.bestellingdatum = bestellingdatum;
-    }
-
-    public String getleveradres() {
-        return leveradres;
-    }
-
-    public void setleveradres(String leveradres) {
-        this.leveradres = leveradres;
     }
 
     public Klant getKlant() {
@@ -72,14 +60,6 @@ public class Bestelling {
 
     public void setKlant(Klant klant) {
         this.klant = klant;
-    }
-
-    public Plaats getPlaats() {
-        return plaats;
-    }
-
-    public void setPlaats(Plaats plaats) {
-        this.plaats = plaats;
     }
 
     public BestellingStatus getBestellingStatus() {

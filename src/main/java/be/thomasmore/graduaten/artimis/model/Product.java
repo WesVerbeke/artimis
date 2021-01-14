@@ -13,66 +13,86 @@ public class Product {
     private Long productid;
     private String productnaam;
     private String productbeschrijving;
+    private String afbeelding;
     private Integer aantalspelers;
-    private Boolean huurverkoop;
+    private Integer minimumleeftijd;
     private Double prijs;
-    private Integer stock;
+    private Double prijshuur;
+    private Integer stockverkoop;
+    private Integer stockhuur;
+
+    @ManyToOne
+    private Taal taal;
+
+    @ManyToOne
+    private Uitgever uitgever;
 
     //Constructors
     public Product() {
     }
 
-    public Product(Long productid, String productnaam, String productbeschrijving, Integer aantalspelers,
-                   Boolean huurverkoop, Double prijs, Integer stock) {
-        this.productid = productid;
+    public Product(String productnaam, String productbeschrijving, String afbeelding, Integer aantalspelers, Integer minimumleeftijd, Double prijs, Double prijshuur, Integer stockverkoop, Integer stockhuur, Taal taal, Uitgever uitgever) {
         this.productnaam = productnaam;
         this.productbeschrijving = productbeschrijving;
+        this.afbeelding = afbeelding;
         this.aantalspelers = aantalspelers;
-        this.huurverkoop = huurverkoop;
+        this.minimumleeftijd = minimumleeftijd;
         this.prijs = prijs;
-        this.stock = stock;
+        this.prijshuur = prijshuur;
+        this.stockverkoop = stockverkoop;
+        this.stockhuur = stockhuur;
+        this.taal = taal;
+        this.uitgever = uitgever;
     }
 
-    //Getters & Setters
+    //getters en setters
 
-    public Long getproductid() {
+    public Long getProductid() {
         return productid;
     }
 
-    public void setproductid(Long productid) {
+    public void setProductid(Long productid) {
         this.productid = productid;
     }
 
-    public String getproductnaam() {
+    public String getProductnaam() {
         return productnaam;
     }
 
-    public void setproductnaam(String productnaam) {
+    public void setProductnaam(String productnaam) {
         this.productnaam = productnaam;
     }
 
-    public String getproductbeschrijving() {
+    public String getProductbeschrijving() {
         return productbeschrijving;
     }
 
-    public void setproductbeschrijving(String productbeschrijving) {
+    public void setProductbeschrijving(String productbeschrijving) {
         this.productbeschrijving = productbeschrijving;
     }
 
-    public Integer getaantalspelers() {
+    public String getAfbeelding() {
+        return afbeelding;
+    }
+
+    public void setAfbeelding(String afbeelding) {
+        this.afbeelding = afbeelding;
+    }
+
+    public Integer getAantalspelers() {
         return aantalspelers;
     }
 
-    public void setaantalspelers(Integer aantalspelers) {
+    public void setAantalspelers(Integer aantalspelers) {
         this.aantalspelers = aantalspelers;
     }
 
-    public Boolean gethuurverkoop() {
-        return huurverkoop;
+    public Integer getMinimumleeftijd() {
+        return minimumleeftijd;
     }
 
-    public void sethuurverkoop(Boolean huurverkoop) {
-        this.huurverkoop = huurverkoop;
+    public void setMinimumleeftijd(Integer minimumleeftijd) {
+        this.minimumleeftijd = minimumleeftijd;
     }
 
     public Double getPrijs() {
@@ -83,12 +103,43 @@ public class Product {
         this.prijs = prijs;
     }
 
-    public Integer getStock() {
-        return stock;
+    public Double getPrijshuur() {
+        return prijshuur;
     }
 
-    public void setStock(Integer stock) {
-        this.stock = stock;
+    public void setPrijshuur(Double prijshuur) {
+        this.prijshuur = prijshuur;
     }
 
+    public Integer getStockverkoop() {
+        return stockverkoop;
+    }
+
+    public void setStockverkoop(Integer stockverkoop) {
+        this.stockverkoop = stockverkoop;
+    }
+
+    public Integer getStockhuur() {
+        return stockhuur;
+    }
+
+    public void setStockhuur(Integer stockhuur) {
+        this.stockhuur = stockhuur;
+    }
+
+    public Taal getTaal() {
+        return taal;
+    }
+
+    public void setTaal(Taal taal) {
+        this.taal = taal;
+    }
+
+    public Uitgever getUitgever() {
+        return uitgever;
+    }
+
+    public void setUitgever(Uitgever uitgever) {
+        this.uitgever = uitgever;
+    }
 }

@@ -11,8 +11,10 @@ public class BestellingProduct {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long bestellingproductid;
+    private Boolean huurverkoop;
     private Integer aantal;
     private Date einddatum;
+    private Boolean productbijklant;
 
     //Many to One relations with other entities
     @ManyToOne
@@ -25,33 +27,68 @@ public class BestellingProduct {
     public BestellingProduct() {
     }
 
-    public BestellingProduct(Long bestellingproductid, Integer aantal, Product product, Bestelling bestelling) {
-        this.bestellingproductid = bestellingproductid;
+    public BestellingProduct(Boolean huurverkoop, Integer aantal, Product product, Bestelling bestelling) {
+        this.huurverkoop = huurverkoop;
         this.aantal = aantal;
         this.product = product;
         this.bestelling = bestelling;
     }
 
+    //getters en setters
 
-    //Getters & Setters
+    public Long getBestellingproductid() {
+        return bestellingproductid;
+    }
 
-    public Long getbestellingproductid() { return bestellingproductid; }
+    public void setBestellingproductid(Long bestellingproductid) {
+        this.bestellingproductid = bestellingproductid;
+    }
 
-    public void setbestellingproductid(Long bestellingproductid) { this.bestellingproductid = bestellingproductid; }
+    public Boolean getHuurverkoop() {
+        return huurverkoop;
+    }
 
-    public Integer getAantal() { return aantal; }
+    public void setHuurverkoop(Boolean huurverkoop) {
+        this.huurverkoop = huurverkoop;
+    }
 
-    public void setAantal(Integer aantal) { this.aantal = aantal; }
+    public Integer getAantal() {
+        return aantal;
+    }
 
-    public Date getEinddatum() { return einddatum; }
+    public void setAantal(Integer aantal) {
+        this.aantal = aantal;
+    }
 
-    public void setEinddatum(Date einddatum) { this.einddatum = einddatum; }
+    public Date getEinddatum() {
+        return einddatum;
+    }
 
-    public Product getProduct() { return product; }
+    public void setEinddatum(Date einddatum) {
+        this.einddatum = einddatum;
+    }
 
-    public void setProduct(Product product) { this.product = product; }
+    public Boolean getProductbijklant() {
+        return productbijklant;
+    }
 
-    public Bestelling getBestelling() { return bestelling; }
+    public void setProductbijklant(Boolean productbijklant) {
+        this.productbijklant = productbijklant;
+    }
 
-    public void setBestelling(Bestelling bestelling) { this.bestelling = bestelling; }
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
+    }
+
+    public Bestelling getBestelling() {
+        return bestelling;
+    }
+
+    public void setBestelling(Bestelling bestelling) {
+        this.bestelling = bestelling;
+    }
 }
