@@ -1,9 +1,7 @@
-package be.thomasmore.graduaten.artimis.entity;
+package be.thomasmore.graduaten.artimis.model;
 
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -25,7 +23,7 @@ public class Product {
     }
 
     public Product(Long productid, String productnaam, String productbeschrijving, Integer aantalspelers,
-                   Boolean huurverkoop, Double prijs, Integer stock, List<ProductCategorie> productCategorie, List<BestellingProduct> bestellingProduct) {
+                   Boolean huurverkoop, Double prijs, Integer stock) {
         this.productid = productid;
         this.productnaam = productnaam;
         this.productbeschrijving = productbeschrijving;

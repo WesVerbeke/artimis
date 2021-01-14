@@ -1,15 +1,14 @@
 package be.thomasmore.graduaten.artimis.service;
 
-import be.thomasmore.graduaten.artimis.entity.Bestelling;
-import be.thomasmore.graduaten.artimis.entity.BestellingProduct;
-import be.thomasmore.graduaten.artimis.entity.Product;
+import be.thomasmore.graduaten.artimis.model.Bestelling;
+import be.thomasmore.graduaten.artimis.model.BestellingProduct;
+import be.thomasmore.graduaten.artimis.model.Product;
 import be.thomasmore.graduaten.artimis.repository.BestellingProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class BestellingProductServiceImpl implements BestellingProductService {

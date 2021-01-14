@@ -1,6 +1,6 @@
 package be.thomasmore.graduaten.artimis.service;
 
-import be.thomasmore.graduaten.artimis.entity.Plaats;
+import be.thomasmore.graduaten.artimis.model.Plaats;
 
 import java.util.List;
 

@@ -6,13 +6,13 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page import="java.util.List" %>
-<%@ page import="be.thomasmore.graduaten.artimis.entity.Klant" %>
+<%@ page import="be.thomasmore.graduaten.artimis.model.Klant" %>
 <%@ page import="be.thomasmore.graduaten.artimis.service.KlantService" %>
-<%@ page import="be.thomasmore.graduaten.artimis.entity.KlantError" %>
-<%@ page import="be.thomasmore.graduaten.artimis.entity.Klant" %>
-<%@ page import="be.thomasmore.graduaten.artimis.entity.KlantError" %>
-<%@ page import="be.thomasmore.graduaten.artimis.entity.Klant" %>
-<%@ page import="be.thomasmore.graduaten.artimis.entity.KlantError" %>
+<%@ page import="be.thomasmore.graduaten.artimis.model.KlantError" %>
+<%@ page import="be.thomasmore.graduaten.artimis.model.Klant" %>
+<%@ page import="be.thomasmore.graduaten.artimis.model.KlantError" %>
+<%@ page import="be.thomasmore.graduaten.artimis.model.Klant" %>
+<%@ page import="be.thomasmore.graduaten.artimis.model.KlantError" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -62,23 +62,23 @@
 <div class="container-flex p-3">
     <form class="needs-validation" action="${pageContext.request.contextPath}/register" method="get" novalidate>
         <div class="form-group">
-            <label for="<%=Klant.FIRST_NAME%>"><%=Klant.FIRST_NAME%></label>
+            <label for="<%=Klant.VOORNAAM%>"><%=Klant.VOORNAAM%></label>
             <input
                     type="text"
                     class="form-control<%out.print(klantError.voornaam != null ? " is-invalid" : "");%>"
-                    id="<%=Klant.FIRST_NAME%>"
-                    name="<%=Klant.FIRST_NAME%>"
+                    id="<%=Klant.VOORNAAM%>"
+                    name="<%=Klant.VOORNAAM%>"
                     value="<%=klant.getVoornaam() == null ? "" : klant.getVoornaam()%>"
                     required>
             <%out.print(klantError.voornaam != null ? "<div class=\"invalid-feedback\">" + klantError.voornaam + "</div>" : "");%>
         </div>
         <div class="form-group">
-            <label for="<%=Klant.LAST_NAME%>"><%=Klant.LAST_NAME%></label>
+            <label for="<%=Klant.ACHTERNAAM%>"><%=Klant.ACHTERNAAM%></label>
             <input
                     type="text"
                     class="form-control<%out.print(klantError.achternaam != null ? " is-invalid" : "");%>"
-                    id="<%=Klant.LAST_NAME%>"
-                    name="<%=Klant.LAST_NAME%>"
+                    id="<%=Klant.ACHTERNAAM%>"
+                    name="<%=Klant.ACHTERNAAM%>"
                     value="<%=klant.getAchternaam() == null ? "" : klant.getAchternaam()%>"
                     required>
             <%out.print(klantError.achternaam != null ? "<div class=\"invalid-feedback\">" + klantError.achternaam + "</div>" : "");%>

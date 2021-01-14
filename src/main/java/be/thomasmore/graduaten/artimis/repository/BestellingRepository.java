@@ -1,7 +1,7 @@
 package be.thomasmore.graduaten.artimis.repository;
 
 
-import be.thomasmore.graduaten.artimis.entity.Bestelling;
+import be.thomasmore.graduaten.artimis.model.Bestelling;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,4 +1,4 @@
-package be.thomasmore.graduaten.artimis.entity;
+package be.thomasmore.graduaten.artimis.model;
 
 
 public class KlantError {

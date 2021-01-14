@@ -1,6 +1,6 @@
 package be.thomasmore.graduaten.artimis.service;
 
-import be.thomasmore.graduaten.artimis.entity.Plaats;
+import be.thomasmore.graduaten.artimis.model.Plaats;
 import be.thomasmore.graduaten.artimis.repository.PlaatsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

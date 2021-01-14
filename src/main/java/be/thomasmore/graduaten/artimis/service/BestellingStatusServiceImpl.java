@@ -1,5 +1,5 @@
 package be.thomasmore.graduaten.artimis.service;
-import be.thomasmore.graduaten.artimis.entity.BestellingStatus;
+import be.thomasmore.graduaten.artimis.model.BestellingStatus;
 import be.thomasmore.graduaten.artimis.repository.BestellingStatusRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

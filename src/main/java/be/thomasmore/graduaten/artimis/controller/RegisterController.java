@@ -1,8 +1,8 @@
 package be.thomasmore.graduaten.artimis.controller;
 
 
-import be.thomasmore.graduaten.artimis.entity.Klant;
-import be.thomasmore.graduaten.artimis.entity.KlantError;
+import be.thomasmore.graduaten.artimis.model.Klant;
+import be.thomasmore.graduaten.artimis.model.KlantError;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;

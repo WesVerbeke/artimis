@@ -7,7 +7,7 @@
 --%>
 
 <%@ page import="java.util.List" %>
-<%@ page import="be.thomasmore.graduaten.artimis.entity.Bestelling" %>
+<%@ page import="be.thomasmore.graduaten.artimis.model.Bestelling" %>
 <%@ page import="be.thomasmore.graduaten.artimis.service.BestellingService" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>

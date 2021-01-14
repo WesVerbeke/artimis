@@ -21,6 +21,11 @@
             margin-bottom: 17px;
             float: left;
         }
+/*
+        .navbar-dark {
+            background-color: #bd0760 !important;
+        }
+*/
     </style>
 </head>
 <body>

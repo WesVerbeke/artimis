@@ -1,4 +1,4 @@
-package be.thomasmore.graduaten.artimis.entity;
+package be.thomasmore.graduaten.artimis.model;
 
 import javax.persistence.*;
 import java.util.List;
@@ -7,8 +7,8 @@ import java.util.List;
 public class Klant {
 
     public static final String NAME = "klant";
-    public static final String FIRST_NAME = "Voornaam";
-    public static final String LAST_NAME = "Achternaam";
+    public static final String VOORNAAM = "Voornaam";
+    public static final String ACHTERNAAM = "Achternaam";
     public static final String EMAIL = "Email";
 
     @Id

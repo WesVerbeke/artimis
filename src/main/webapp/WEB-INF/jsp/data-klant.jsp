@@ -1,4 +1,4 @@
-<%@ page import="be.thomasmore.graduaten.artimis.entity.Klant" %>
+<%@ page import="be.thomasmore.graduaten.artimis.model.Klant" %>
 <%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%--
