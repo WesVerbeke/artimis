@@ -11,21 +11,22 @@ public class Plaats {
     private String postcode;
     private String gemeente;
 
-
+    //constructors
     public Plaats() {
     }
 
-    public Plaats(Long plaatsid, String postcode, String gemeente, List<Bestelling> bestellingen) {
-        this.plaatsid = plaatsid;
+    public Plaats(String postcode, String gemeente) {
         this.postcode = postcode;
         this.gemeente = gemeente;
     }
 
-    public Long getplaatsid() {
+    //getters en setters
+
+    public Long getPlaatsid() {
         return plaatsid;
     }
 
-    public void setplaatsid(Long plaatsid) {
+    public void setPlaatsid(Long plaatsid) {
         this.plaatsid = plaatsid;
     }
 
@@ -43,11 +44,5 @@ public class Plaats {
 
     public void setGemeente(String gemeente) {
         this.gemeente = gemeente;
-    }
-
-    @Override
-    public String toString()
-    {
-        return this.postcode + " " + this.gemeente;
     }
 }

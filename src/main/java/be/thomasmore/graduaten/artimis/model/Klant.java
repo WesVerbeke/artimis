@@ -9,7 +9,9 @@ public class Klant {
     public static final String NAME = "klant";
     public static final String VOORNAAM = "Voornaam";
     public static final String ACHTERNAAM = "Achternaam";
-    public static final String EMAIL = "Email";
+    public static final String GEBOORTEDATUM = "Geboortedatum";
+    public static final String EMAIL = "E-mail";
+    public static final String GEBRUIKERSNAAM = "Gebruikersnaam";
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,30 +19,35 @@ public class Klant {
     private String voornaam;
     private String achternaam;
     private String geboortedatum;
+    private String adres;
     private String email;
-    private String telefoon;
     private String gebruikersnaam;
     private String wachtwoord;
+    private Boolean beheerder;
 
     //Constructor
-    public Klant() {} //default constructor
+    public Klant() {
+    }
 
-    public Klant(Long klantid, String voornaam, String achternaam, String geboortedatum, String email,
-                 String gebruikersnaam, String wachtwoord, List<Bestelling> bestellingen) {
-        this.klantid = klantid;
+    public Klant(String voornaam, String achternaam, String geboortedatum, String adres, String email, String gebruikersnaam, String wachtwoord, Boolean beheerder) {
         this.voornaam = voornaam;
         this.achternaam = achternaam;
         this.geboortedatum = geboortedatum;
+        this.adres = adres;
         this.email = email;
         this.gebruikersnaam = gebruikersnaam;
         this.wachtwoord = wachtwoord;
+        this.beheerder = beheerder;
     }
 
-    public Long getklantid() {
+    //getters en setters
+
+
+    public Long getKlantid() {
         return klantid;
     }
 
-    public void setklantid(Long klantid) {
+    public void setKlantid(Long klantid) {
         this.klantid = klantid;
     }
 
@@ -68,20 +75,20 @@ public class Klant {
         this.geboortedatum = geboortedatum;
     }
 
+    public String getAdres() {
+        return adres;
+    }
+
+    public void setAdres(String adres) {
+        this.adres = adres;
+    }
+
     public String getEmail() {
         return email;
     }
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getTelefoon() {
-        return telefoon;
-    }
-
-    public void setTelefoon(String telefoon) {
-        this.telefoon = telefoon;
     }
 
     public String getGebruikersnaam() {
@@ -100,9 +107,19 @@ public class Klant {
         this.wachtwoord = wachtwoord;
     }
 
+    public Boolean getBeheerder() {
+        return beheerder;
+    }
+
+    public void setBeheerder(Boolean beheerder) {
+        this.beheerder = beheerder;
+    }
+
+/*
     @Override
     public String toString()
     {
         return ""; //voorlopige returnwaarde
     }
+*/
 }

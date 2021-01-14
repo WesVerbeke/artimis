@@ -10,30 +10,32 @@ public class BestellingStatus {
     private Long bestellingstatusid;
     private String bestellingstatusbeschrijving;
 
+    //constructors
     public BestellingStatus() {
     }
 
-    public BestellingStatus(Long bestellingstatusid, String bestellingstatusbeschrijving, List<Bestelling> bestelling) {
-        this.bestellingstatusid = bestellingstatusid;
+    public BestellingStatus(String bestellingstatusbeschrijving) {
         this.bestellingstatusbeschrijving = bestellingstatusbeschrijving;
     }
 
-    public Long getbestellingstatusid() {
+    //getters en setters
+    public Long getBestellingstatusid() {
         return bestellingstatusid;
     }
 
-    public void setbestellingstatusid(Long bestellingStatusCode) {
-        this.bestellingstatusid = bestellingStatusCode;
+    public void setBestellingstatusid(Long bestellingstatusid) {
+        this.bestellingstatusid = bestellingstatusid;
     }
 
-    public String getbestellingstatusbeschrijving() {
+    public String getBestellingstatusbeschrijving() {
         return bestellingstatusbeschrijving;
     }
 
-    public void setbestellingstatusbeschrijving(String bestellingstatusbeschrijving) {
+    public void setBestellingstatusbeschrijving(String bestellingstatusbeschrijving) {
         this.bestellingstatusbeschrijving = bestellingstatusbeschrijving;
     }
 
+    //methodes
     @Override
     public String toString() {
         return bestellingstatusid + " " + bestellingstatusbeschrijving;
