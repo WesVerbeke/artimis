@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @Controller
@@ -26,6 +27,14 @@ public class MainController {
         return "kopen";
     }
 
+    @RequestMapping("/productdetail")
+    public String navigateProductdetail(HttpServletRequest request, Model model) {
+        Long id = Long.parseLong(request.getParameter("id"));
+        Product product = productService.getProductById(id);
+        model.addAttribute("product", product);
+        return "productdetail";
+    }
+
     @RequestMapping("/login")
     public  String navigateLogin() { return "login"; }
 
@@ -34,4 +43,5 @@ public class MainController {
 
     @RequestMapping("/privacy")
     public String navigatePrivacy() { return "privacy"; }
+
 }
