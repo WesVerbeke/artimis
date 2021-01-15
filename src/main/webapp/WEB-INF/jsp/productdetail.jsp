@@ -93,7 +93,7 @@
         out.print("<h1 class=\"mt-4\">" + product.getProductnaam() + "</h1>\n");
         out.print("<table class=\"tabel\">");
             out.print(
-                    "<tr>" + "<td>" + "<img src=\"" + product.getAfbeelding() + "\" alt=\"Logo BoardGamesOnline\" class=\"afbeeldingproduct\">"+ "</td>" +
+                    "<tr>" + "<td>" + "<img src=\"" + product.getAfbeelding() + "\" alt=\"" + product.getProductnaam() + "\" class=\"afbeeldingproduct\">"+ "</td>" +
                         "<td class=\"tekstinhoud\">" + product.getProductbeschrijving() + "</td></tr>" +
                     "<tr><td class=\"opsomming\"><i>Spelers:&#8194;</i><b>" + product.getAantalspelers().toString() + "</b></td><tr>" +
                     "<tr><td class=\"opsomming\"><i>Min. leeftijd:&#8194;</i><b>" + product.getMinimumleeftijd().toString() + "</b></td><tr>" +

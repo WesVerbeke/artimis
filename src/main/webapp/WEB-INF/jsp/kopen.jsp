@@ -92,7 +92,7 @@
             String linkdetail = "/productdetail?id=" + product.getProductid().toString();
             out.print(
                     "<tr>"
-                        + "<td rowspan=\"2\" style=\"border-bottom: 1px solid #ddd\">" + "<img src=\"" + product.getAfbeelding() + "\" alt=\"Logo BoardGamesOnline\" class=\"afbeeldingproduct\">\n"+ "</td>"
+                        + "<td rowspan=\"2\" style=\"border-bottom: 1px solid #ddd\">" + "<img src=\"" + product.getAfbeelding() + "\" alt=\" + product.getProductnaam() + \" class=\"afbeeldingproduct\">\n"+ "</td>"
                             + "<td class=\"titelinhoud\"><b>" + product.getProductnaam() + "</b></td><td class=\"prijs\">" + "&euro; " + product.getPrijs() + "</td></tr>"
                     +"<tr style=\"border-bottom: 1px solid #ddd\"><td class=\"tekstinhoud\">" + product.getProductbeschrijving() + "</td><td><a href=" + linkdetail + "><button type=\"button\" class=\"knop\">details</button></a></td></tr>"
             );
