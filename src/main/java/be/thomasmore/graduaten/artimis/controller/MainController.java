@@ -1,24 +1,37 @@
 package be.thomasmore.graduaten.artimis.controller;
 
 
+import be.thomasmore.graduaten.artimis.model.Product;
+import be.thomasmore.graduaten.artimis.service.ProductService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.util.List;
 
 @Controller
 public class MainController {
 
-    @RequestMapping("/")
-    public String navigateHome() { return "index"; }
+    @Autowired
+    ProductService productService;
 
-    @RequestMapping("/privacy")
-    public String navigatePrivacy() { return "privacy"; }
+    @RequestMapping("/")
+    public String index() { return "index"; }
+
+    @RequestMapping("/kopen")
+    public String navigateKopen(Model model) {
+        List<Product> producten = productService.getProducten();
+        model.addAttribute("producten", producten);
+        return "kopen";
+    }
 
     @RequestMapping("/login")
     public  String navigateLogin() { return "login"; }
 
-    @RequestMapping("/kopen")
-    public String navigateKopen() { return "kopen"; }
-
     @RequestMapping("/contact")
     public String navigateContact() { return "contact"; }
+
+    @RequestMapping("/privacy")
+    public String navigatePrivacy() { return "privacy"; }
 }

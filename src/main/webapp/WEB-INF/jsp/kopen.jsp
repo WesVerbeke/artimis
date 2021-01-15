@@ -6,10 +6,11 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page import="java.util.List" %>
+<%@ page import="be.thomasmore.graduaten.artimis.model.Product" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>The Atrimis Project: Kopen</title>
+    <title>The Artimis Project: Kopen</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
@@ -20,6 +21,39 @@
             margin-top: 19px;
             margin-bottom: 17px;
             float: left;
+        }
+        .prijs {
+            color: #993300;
+            white-space: nowrap;
+            font-size: 20px;
+            font-weight: bold;
+            padding-top: 20px;
+        }
+        .tabel {
+            border-collapse: collapse;
+        }
+        .tekstinhoud {
+            padding-left: 20px;
+            padding-right: 30px;
+            padding-bottom: 20px;
+        }
+        .titelinhoud {
+            padding-left: 20px;
+            padding-right: 40px;
+            padding-top: 20px;
+        }
+        .afbeeldingproduct {
+            pointer-events: none;
+            width: 105px;
+            height: 105px;
+        }
+        .knop {
+            border: 0px !important;
+            color: #e5ddd3 !important;
+            background-color: #494540 !important;
+            width: 70px !important;
+            padding-top: 5px !important;
+            padding-bottom: 5px !important;
         }
     </style>
 </head>
@@ -48,8 +82,23 @@
 
 <!-- Page Content -->
 <div class="container">
-    <h1 class="mt-4">Kopen pagina for BoardGamesOnline.</h1>
-    <p>Here people can buy shit.</p>
+    <h1 class="mt-4">Overzicht Bordspellen</h1>
+
+    <%-- Tabel met producten --%>
+    <%
+        List<Product> producten = (List<Product>) request.getAttribute("producten");
+        out.print("<table class=\"tabel\">");
+        for (Product product: producten) {
+            out.print(
+                    "<tr>"
+                        + "<td rowspan=\"2\" style=\"border-bottom: 1px solid #ddd\">" + "<img src=\"" + product.getAfbeelding() + "\" alt=\"Logo BoardGamesOnline\" class=\"afbeeldingproduct\">\n"+ "</td>"
+                            + "<td class=\"titelinhoud\"><b>" + product.getProductnaam() + "</b></td><td class=\"prijs\">" + "&euro; " + product.getPrijs() + "</td></tr>"
+                    +"<tr style=\"border-bottom: 1px solid #ddd\"><td class=\"tekstinhoud\">" + product.getProductbeschrijving() + "</td><td><button type=\"button\" class=\"knop\">details</button></td></tr>"
+            );
+        }
+        out.print("</table>");
+    %>
+
 </div>
     <!-- /.container -->
     <footer class="footer mt-auto py-3 bg-light position-absolute: fixed-bottom">

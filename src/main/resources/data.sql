@@ -156,7 +156,7 @@ CREATE TABLE IF NOT EXISTS PRODUCT(
 
 --monopoly
 INSERT INTO PRODUCT(productnaam, productbeschrijving, afbeelding, aantalspelers, minimumleeftijd, Taal_taalid, Uitgever_uitgeverid, prijs, prijshuur, stockverkoop, stockhuur)
-VALUES('Monopoly', 'Het klassieke bordspel voor de ganse familie. Kan gespeeld worden met 2 tot 6 spelers.', 'https://i.imgur.com/rZe0nYl.jpg', 6, 8, 1, 1, 33.25, 4.99, 150, 15);
+VALUES('Monopoly', 'Het klassieke bordspel voor de ganse familie. Kan gespeeld worden met 2 tot 6 spelers.', 'https://i.imgur.com/rZe0nYl.jpg', 6, 8, 1, 1, 33, 4.99, 150, 15);
 
 --schaakspel
 INSERT INTO PRODUCT(productnaam, productbeschrijving, afbeelding, aantalspelers, minimumleeftijd, Taal_taalid, Uitgever_uitgeverid, prijs, prijshuur, stockverkoop, stockhuur)
