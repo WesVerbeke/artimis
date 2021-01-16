@@ -4,6 +4,10 @@ import javax.persistence.*;
 
 @Entity
 public class Plaats {
+    public static final String NAME = "plaats";
+    public static final String POSTCODE = "Postcode";
+    public static final String GEMEENTE = "Gemeente";
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) //GenerationType.Table
     private Long plaatsid;

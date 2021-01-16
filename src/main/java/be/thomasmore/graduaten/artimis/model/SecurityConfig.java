@@ -26,7 +26,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         //database authentication
         auth.jdbcAuthentication()
                 .dataSource(dataSource)
-                //.passwordEncoder(passwordEncoder());
+                //.passwordEncoder(passwordEncoder()); //voor encryption
                 .usersByUsernameQuery(
                 "SELECT username, password, enabled FROM GEBRUIKER WHERE username = ?"
                 )
@@ -42,7 +42,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         //password encryption instellen op clear tekst (voor testdata met ongeencrypteerde wachtwoorden)
         return NoOpPasswordEncoder.getInstance();
 
-        //return new BCryptPasswordEncoder();
+        //return new BCryptPasswordEncoder(); //dit moet je normaal gezien doen voor encryption
     }
 
     @Override
@@ -55,9 +55,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 //.anyRequest().authenticated()
                 .and()
                 .formLogin();
-                //.and() //deze lijn moet worden verwijderd om eigen loginpagina te gebruiken
-                //.httpBasic(); //deze lijn moet worden verwijderd om eigen loginpagina te gebruiken
-
+                //.and()
+                //.httpBasic();
 
                 //.loginPage("/login") //eigen loginpagina gebruiken
                 //.permitAll(); //iedereen moet hier toegang toe krijgen

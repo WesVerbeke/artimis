@@ -6,6 +6,7 @@ import java.util.Objects;
 @Entity
 public class Gebruiker {
 
+    public static final String NAME = "gebruiker";
     public static final String USERNAME = "E-mail";
     public static final String PASSWORD = "Wachtwoord";
     public static final String ENABLED = "Gebruiker Actief";

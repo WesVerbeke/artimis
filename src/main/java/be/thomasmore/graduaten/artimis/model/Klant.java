@@ -1,6 +1,7 @@
 package be.thomasmore.graduaten.artimis.model;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 public class Klant {
@@ -16,7 +17,7 @@ public class Klant {
     private Long klantid;
     private String voornaam;
     private String achternaam;
-    private String geboortedatum;
+    private Date geboortedatum;
     private String adres;
 
     @ManyToOne
@@ -26,7 +27,7 @@ public class Klant {
     public Klant() {
     }
 
-    public Klant(String voornaam, String achternaam, String geboortedatum, String adres, Plaats plaats) {
+    public Klant(String voornaam, String achternaam, Date geboortedatum, String adres, Plaats plaats) {
         this.voornaam = voornaam;
         this.achternaam = achternaam;
         this.geboortedatum = geboortedatum;
@@ -59,11 +60,11 @@ public class Klant {
         this.achternaam = achternaam;
     }
 
-    public String getGeboortedatum() {
+    public Date getGeboortedatum() {
         return geboortedatum;
     }
 
-    public void setGeboortedatum(String geboortedatum) {
+    public void setGeboortedatum(Date geboortedatum) {
         this.geboortedatum = geboortedatum;
     }
 
