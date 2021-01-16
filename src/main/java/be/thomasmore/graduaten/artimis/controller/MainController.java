@@ -44,5 +44,9 @@ public class MainController {
     @RequestMapping("/login")
     public String navigateLogin() { return "login"; }
 
+    @RequestMapping("/user")
+    public String navigateUser() { return "user"; }
 
+    @RequestMapping("/admin")
+    public String navigateAdmin() { return "admin"; }
 }

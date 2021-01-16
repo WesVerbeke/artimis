@@ -19,11 +19,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         auth.inMemoryAuthentication()
                 .withUser("bla")
                 .password("bla")
-                .roles("USER")
+                .roles("User")
                 .and()
                 .withUser("ble")
                 .password("ble")
-                .roles("USER");
+                .roles("Admin");
     }
 
     @Bean
@@ -33,22 +33,21 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         return NoOpPasswordEncoder.getInstance();
     }
 
-/*
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .anyRequest().authenticated()
+                .antMatchers("/admin").hasRole("Admin")
+                .antMatchers("/user").hasAnyRole("User", "Admin")
+                .antMatchers("/", "/kopen", "/productdetail", "/contact", "/privacy", "/register").permitAll()
+                //.anyRequest().authenticated()
                 .and()
-                .formLogin()
-*/
-/*
-                .and()
-                .httpBasic();
-*//*
+                .formLogin();
+                //.and() //deze lijn moet worden verwijderd om eigen loginpagina te gebruiken
+                //.httpBasic(); //deze lijn moet worden verwijderd om eigen loginpagina te gebruiken
 
-                .loginPage("/login") //eigen loginpagina gebruiken
-                .permitAll(); //iedereen moet hier toegang toe krijgen
+
+                //.loginPage("/login") //eigen loginpagina gebruiken
+                //.permitAll(); //iedereen moet hier toegang toe krijgen
     }
-*/
 }
