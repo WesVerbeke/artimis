@@ -9,8 +9,7 @@ public class Klant {
     public static final String VOORNAAM = "Voornaam";
     public static final String ACHTERNAAM = "Achternaam";
     public static final String GEBOORTEDATUM = "Geboortedatum";
-    public static final String EMAIL = "E-mail";
-    public static final String GEBRUIKERSNAAM = "Gebruikersnaam";
+    public static final String ADRES = "Adres";
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,10 +18,6 @@ public class Klant {
     private String achternaam;
     private String geboortedatum;
     private String adres;
-    private String email;
-    private String gebruikersnaam;
-    private String wachtwoord;
-    private Boolean beheerder;
 
     @ManyToOne
     private Plaats plaats;
@@ -31,21 +26,15 @@ public class Klant {
     public Klant() {
     }
 
-    public Klant(String voornaam, String achternaam, String geboortedatum, String adres, Plaats plaats, String email, String gebruikersnaam, String wachtwoord, Boolean beheerder) {
+    public Klant(String voornaam, String achternaam, String geboortedatum, String adres, Plaats plaats) {
         this.voornaam = voornaam;
         this.achternaam = achternaam;
         this.geboortedatum = geboortedatum;
         this.adres = adres;
         this.plaats = plaats;
-        this.email = email;
-        this.gebruikersnaam = gebruikersnaam;
-        this.wachtwoord = wachtwoord;
-        this.beheerder = beheerder;
     }
 
     //getters en setters
-
-
     public Long getKlantid() {
         return klantid;
     }
@@ -93,44 +82,4 @@ public class Klant {
     public void setPlaats(Plaats plaats) {
         this.plaats = plaats;
     }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getGebruikersnaam() {
-        return gebruikersnaam;
-    }
-
-    public void setGebruikersnaam(String gebruikersnaam) {
-        this.gebruikersnaam = gebruikersnaam;
-    }
-
-    public String getWachtwoord() {
-        return wachtwoord;
-    }
-
-    public void setWachtwoord(String wachtwoord) {
-        this.wachtwoord = wachtwoord;
-    }
-
-    public Boolean getBeheerder() {
-        return beheerder;
-    }
-
-    public void setBeheerder(Boolean beheerder) {
-        this.beheerder = beheerder;
-    }
-
-/*
-    @Override
-    public String toString()
-    {
-        return ""; //voorlopige returnwaarde
-    }
-*/
 }

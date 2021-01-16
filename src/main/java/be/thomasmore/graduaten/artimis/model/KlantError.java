@@ -6,5 +6,4 @@ public class KlantError {
     public boolean hasErrors;
     public String voornaam;
     public String achternaam;
-    public String email;
 }

@@ -76,17 +76,6 @@
                     required>
             <%out.print(klantError.achternaam != null ? "<div class=\"invalid-feedback\">" + klantError.achternaam + "</div>" : "");%>
         </div>
-        <div class="form-group">
-            <label for="<%=Klant.EMAIL%>"><%=Klant.EMAIL%></label>
-            <input
-                    type="email"
-                    class="form-control<%out.print(klantError.email != null ? " is-invalid" : "");%>"
-                    id="<%=Klant.EMAIL%>"
-                    name="<%=Klant.EMAIL%>"
-                    value="<%=klant.getEmail() == null ? "" : klant.getEmail()%>"
-                    required>
-            <%out.print(klantError.email != null ? "<div class=\"invalid-feedback\">" + klantError.email + "</div>" : "");%>
-        </div>
         <input type="submit" class="btn btn-orange" value="Submit user">
     </form>
 </div>

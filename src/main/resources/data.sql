@@ -1,3 +1,17 @@
+--AUTORITEIT
+CREATE TABLE IF NOT EXISTS AUTORITEIT(
+    autoriteitid INT NOT NULL AUTO_INCREMENT,
+    authority NVARCHAR(50) NOT NULL,
+    PRIMARY KEY (autoriteitid)
+);
+
+--rollen aanmaken
+INSERT INTO AUTORITEIT(authority)
+VALUES ( 'ROLE_USER' );
+
+INSERT INTO AUTORITEIT(authority)
+VALUES ( 'ROLE_ADMIN' );
+
 --UITGEVER
 CREATE TABLE IF NOT EXISTS UITGEVER(
     uitgeverid INT NOT NULL AUTO_INCREMENT,
@@ -122,20 +136,34 @@ CREATE TABLE IF NOT EXISTS KLANT(
     geboortedatum DATE NOT NULL,
     adres NVARCHAR(200) NOT NULL,
     Plaats_plaatsid INT NOT NULL,
-    email NVARCHAR(100) NOT NULL,
-    gebruikersnaam NVARCHAR(100) NOT NULL,
-    wachtwoord NVARCHAR(250) NOT NULL,
-    beheerder BIT NOT NULL,
     PRIMARY KEY (klantid)
 );
 
---Beheerder aanmaken
-INSERT INTO KLANT(voornaam, achternaam, geboortedatum, adres, Plaats_plaatsid, email, gebruikersnaam, wachtwoord, beheerder)
-VALUES ('Dries','Vandoorne', PARSEDATETIME('22-01-1989','dd-MM-yyyy'), 'Westelsebaan 63', 2, 'r0607003@student.thomasmore.be','DriesVandoorne','DV', 1);
+--klanten aanmaken
+INSERT INTO KLANT(voornaam, achternaam, geboortedatum, adres, Plaats_plaatsid)
+VALUES ('Dries','Vandoorne', PARSEDATETIME('22-01-1989','dd-MM-yyyy'), 'Westelsebaan 63', 2);
 
---Klant aanmaken
-INSERT INTO KLANT(voornaam, achternaam, geboortedatum, adres, Plaats_plaatsid, email, gebruikersnaam, wachtwoord, beheerder)
-VALUES ('Joske','Vermeulen', PARSEDATETIME('02-09-1981','dd-MM-yyyy'), 'Trammezandlei 122', 1, 'joskevermeulen@gmail.com','JoskeVermeulen','JV', 0);
+INSERT INTO KLANT(voornaam, achternaam, geboortedatum, adres, Plaats_plaatsid)
+VALUES ('Joske','Vermeulen', PARSEDATETIME('02-09-1981','dd-MM-yyyy'), 'Trammezandlei 122', 1);
+
+--GEBRUIKER
+CREATE TABLE IF NOT EXISTS GEBRUIKER(
+    USERNAME NVARCHAR(50) NOT NULL,
+    PASSWORD NVARCHAR(50) NOT NULL,
+    Autoriteit_autoriteitid INT NOT NULL,
+    Klant_klantid INT NOT NULL,
+    ENABLED BIT NOT NULL,
+    PRIMARY KEY (USERNAME)
+);
+
+--beheerder aanmaken
+INSERT INTO GEBRUIKER(username, password, autoriteit_autoriteitid, klant_klantid, enabled)
+VALUES('r0607003@student.thomasmore.be', 'pass', 2, 1, TRUE);
+
+--gewone gebruiker (m.a.w. "klant" aanmaken)
+INSERT INTO GEBRUIKER(username, password, autoriteit_autoriteitid, klant_klantid, enabled)
+VALUES('joskevermeulen@gmail.com', 'pass', 1, 2, TRUE);
+
 
 --PRODUCT
 CREATE TABLE IF NOT EXISTS PRODUCT(

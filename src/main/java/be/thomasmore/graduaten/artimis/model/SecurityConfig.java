@@ -28,10 +28,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .dataSource(dataSource)
                 //.passwordEncoder(passwordEncoder());
                 .usersByUsernameQuery(
-                "select email, wachtwoord from Klant where email = ?"
+                "SELECT username, password, enabled FROM GEBRUIKER WHERE username = ?"
                 )
                 .authoritiesByUsernameQuery(
-                "select email, beheerder from Klant where email = ?"
+                "SELECT g.username, a.authority FROM GEBRUIKER g, AUTORITEIT a " +
+                "WHERE g.username = ? AND g.AUTORITEIT_autoriteitid = a.autoriteitid"
                 );
     }
 
@@ -48,8 +49,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/admin", "/h2-console").hasRole("Admin")
-                .antMatchers("/user").hasAnyRole("User", "Admin")
+                .antMatchers("/admin", "/h2-console").hasRole("ADMIN")
+                .antMatchers("/user").hasAnyRole("USER", "ADMIN")
                 .antMatchers("/", "/kopen", "/productdetail", "/contact", "/privacy", "/register").permitAll()
                 //.anyRequest().authenticated()
                 .and()
