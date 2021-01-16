@@ -1,13 +1,9 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: wesve
-  Date: 12/12/2020
-  Time: 12:00
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%--
 <html>
+--%>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>The Atrimis Project: Login</title>
     <meta charset="utf-8">
@@ -20,6 +16,14 @@
             margin-top: 19px;
             margin-bottom: 17px;
             float: left;
+        }
+        .knop {
+            border: 0px !important;
+            color: #e5ddd3 !important;
+            background-color: #494540 !important;
+            width: 70px !important;
+            padding-top: 5px !important;
+            padding-bottom: 5px !important;
         }
     </style>
 </head>
@@ -51,7 +55,29 @@
 
 <!-- Page Content -->
 <div class="container">
-    <h1 class="mt-4">Not a member yet? Please register in order to log in.</h1>
+    <h1 class="mt-4">Inloggen</h1>
+
+    <%-- formulier om in te loggen --%>
+    <form name="inlogformulier" th:action="@{/login}" method="post">
+        <fieldset>
+            <legend>Login a.u.b.</legend>
+            <div th:if="${param.error}" class="alert alert-error">
+                Ongeldige gebruikersnaam of wachtwoord.
+            </div>
+            <div th:if="${param.logout}" class="alert alert-error">
+                Je bent uitgelogd.
+            </div>
+            <label for="username">Gebruikersnaam</label>
+            <input type="text" id="username" name="gebruikersnaam"/>
+            <label for="password">Wachtwoord</label>
+            <input type="text" id="password" name="wachtwoord"/>
+            <div class="form-actions">
+                <button type="submit" class="knop">Inloggen</button>
+            </div>
+        </fieldset>
+    </form>
+
+    <p>Ben je nog geen klant? Registreer eerst voor je een bestelling plaatst.</p>
     <p>Login.</p>
 </div>
     <!-- /.container -->

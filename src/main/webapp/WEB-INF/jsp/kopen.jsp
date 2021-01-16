@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: wesve
-  Date: 12/12/2020
-  Time: 12:04
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page import="java.util.List" %>
 <%@ page import="be.thomasmore.graduaten.artimis.model.Product" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>

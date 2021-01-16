@@ -35,13 +35,14 @@ public class MainController {
         return "productdetail";
     }
 
-    @RequestMapping("/login")
-    public  String navigateLogin() { return "login"; }
-
     @RequestMapping("/contact")
     public String navigateContact() { return "contact"; }
 
     @RequestMapping("/privacy")
     public String navigatePrivacy() { return "privacy"; }
+
+    @RequestMapping("/login")
+    public String navigateLogin() { return "login"; }
+
 
 }
