@@ -1,5 +1,6 @@
 <%@ page import="java.util.List" %>
 <%@ page import="be.thomasmore.graduaten.artimis.model.Gebruiker" %>
+<%@ page import="be.thomasmore.graduaten.artimis.model.Product" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -22,6 +23,19 @@
             width: 60px !important;
             padding-top: 5px !important;
             padding-bottom: 5px !important;
+        }
+        .cel {
+            text-align: center;
+            font-size: 12px;
+            padding-right: 4px;
+            padding-left: 4px ;
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+        .tabelheader {
+            text-align: center;
+            padding-top: 5px;
+            padding-bottom: 5px;
         }
     </style>
 </head>
@@ -50,42 +64,46 @@
 
 <!-- Page Content -->
 <div class="container">
-    <h1 class="mt-4">Overzicht Gebruikers</h1>
+    <h1 class="mt-4">Overzicht Inventaris</h1>
 
     <%-- Tabel met gebruikers --%>
     <%
-        List<Gebruiker> gebruikers = (List<Gebruiker>) request.getAttribute("gebruikers");
         out.print("<table border='1'>");
-        out.print("<tr><th>ID</th><th>Naam</th><th>E-mail (username)</th><th>Admin</th><th>Actief</th><th>Bekijk</th></tr>");
-        for (Gebruiker gebruiker: gebruikers) {
-            String linkdetail = "/klantdetail?id=" + gebruiker.getKlant().getKlantid().toString();
-            String status;
-            if (gebruiker.getEnabled().equals(true))
-            {
-                status = "Ja";
-            }
-            else
-            {
-                status = "Neen";
-            }
-            String admin;
-            if (gebruiker.getAutoriteit().getAuthority().equals("ROLE_ADMIN"))
-            {
-                admin = "Ja";
-            }
-            else{
-                admin = "Neen";
-            }
+        out.print(
+                "<tr>" +
+                        "<th class=\"tabelheader\">ID</th>" +
+                        "<th class=\"tabelheader\">Product</>" +
+                        "<th class=\"tabelheader\">Beschrijving</>" +
+                        "<th class=\"tabelheader\">Foto</>" +
+                        "<th class=\"tabelheader\">Aantal Spelers</th>" +
+                        "<th class=\"tabelheader\">Min. Leeftijd</th>" +
+                        "<th class=\"tabelheader\">Taal</th>" +
+                        "<th class=\"tabelheader\">Uitgever</th>" +
+                        "<th class=\"tabelheader\">Stock</th>" +
+                        "<th class=\"tabelheader\">Prijs</th>" +
+                        "<th class=\"tabelheader\">Stock Huur</th>" +
+                        "<th class=\"tabelheader\">Huurprijs</th>" +
+                "</tr>"
+        );
 
-            //tabel afdrukken
+        List<Product> producten = (List<Product>) request.getAttribute("inventaris");
+
+            //bestellingproducten afdrukken
+        for (Product product: producten) {
             out.print(
                     "<tr>" +
-                            "<td>" + gebruiker.getKlant().getKlantid().toString() + "</td>" +
-                            "<td>" + gebruiker.getKlant().getVoornaam() + " " + gebruiker.getKlant().getAchternaam() + "</td>" +
-                            "<td style=\"font-size: 12px\">" + gebruiker.getUsername() + "</td>" +
-                            "<td>" + admin + "</td>" +
-                            "<td>" + status + "</td>" +
-                            "<td><a href=" + linkdetail + "><button type=\"button\" class=\"knop\">details</button></a></td>" +
+                            "<td class=\"cel\">" + product.getProductid().toString() + "</td>" +
+                            "<td class=\"cel\">" + product.getProductnaam() + "</td>" +
+                            "<td class=\"cel\">" + product.getProductbeschrijving() + "</td>" +
+                            "<td class=\"cel\">" + product.getAfbeelding() + "</td>" +
+                            "<td class=\"cel\">" + product.getAantalspelers().toString() + "</td>" +
+                            "<td class=\"cel\">" + product.getMinimumleeftijd().toString() + "</td>" +
+                            "<td class=\"cel\">" + product.getTaal().getTaalnaam() + "</td>" +
+                            "<td class=\"cel\">" + product.getUitgever().getUitgevernaam() + "</td>" +
+                            "<td class=\"cel\">" + product.getStockverkoop().toString() + "</td>" +
+                            "<td class=\"cel\">&#8364 " + product.getPrijs().toString() + "</td>" +
+                            "<td class=\"cel\">" + product.getStockhuur().toString() + "</td>" +
+                            "<td class=\"cel\">&#8364 " + product.getPrijshuur().toString() + "</td>" +
                             "</tr>"
             );
         }

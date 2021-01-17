@@ -50,6 +50,7 @@
 <!-- Page Content -->
 <div class="container">
     <h1 class="mt-4">Beheerpagina</h1>
+    <p><a href="/inventaris">Overzicht Inventaris</a></p>
     <p><a href="/gebruikers">Overzicht Gebruikers</a></p>
     <p><a href="/bestellingen">Overzicht Bestellingen</a></p>
     <p><a href="/logout"><button class=\"knop\">Logout</button></a></p>

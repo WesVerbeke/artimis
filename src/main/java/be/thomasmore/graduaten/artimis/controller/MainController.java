@@ -68,6 +68,13 @@ public class MainController {
     @RequestMapping("/admin")
     public String navigateAdmin() { return "admin"; }
 
+    @RequestMapping("/inventaris")
+    public String navigateInventaris(Model model) {
+        List<Product> inventaris = productService.getProducten();
+        model.addAttribute("inventaris", inventaris);
+        return "inventaris";
+    }
+
     @RequestMapping("/gebruikers")
     public String navigateGebruikers(Model model) {
         List<Gebruiker> gebruikers = gebruikerService.getGebruikers();
