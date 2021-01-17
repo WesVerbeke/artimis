@@ -14,6 +14,14 @@
             margin-bottom: 17px;
             float: left;
         }
+        .knop {
+            border: 0px !important;
+            color: #e5ddd3 !important;
+            background-color: #494540 !important;
+            width: 60px !important;
+            padding-top: 5px !important;
+            padding-bottom: 5px !important;
+        }
     </style>
 </head>
 <body>
@@ -42,7 +50,7 @@
 <!-- Page Content -->
 <div class="container">
     <h1 class="mt-4">Welkom Klant</h1>
-    <p><a href="/logout">Logout</a></p>
+    <a href="/logout"><button type=\"button\" class=\"knop\">Logout</button></a>
 </div>
 <!-- /.container -->
 <footer class="footer mt-auto py-3 bg-light position-absolute: fixed-bottom">

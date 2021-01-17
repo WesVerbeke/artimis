@@ -123,7 +123,10 @@ CREATE TABLE IF NOT EXISTS BESTELLING_STATUS
 
 --statussen invoeren
 INSERT INTO BESTELLING_STATUS(bestellingstatusbeschrijving)
-VALUES ('onbetaald');
+VALUES ('onbevestigd');
+
+INSERT INTO BESTELLING_STATUS(bestellingstatusbeschrijving)
+VALUES ('bevestigd');
 
 INSERT INTO BESTELLING_STATUS(bestellingstatusbeschrijving)
 VALUES ('betaald');
@@ -146,6 +149,12 @@ VALUES ('Dries','Vandoorne', PARSEDATETIME('22-01-1989','dd-MM-yyyy'), 'Westelse
 INSERT INTO KLANT(voornaam, achternaam, geboortedatum, adres, Plaats_plaatsid)
 VALUES ('Joske','Vermeulen', PARSEDATETIME('02-09-1981','dd-MM-yyyy'), 'Trammezandlei 122', 1);
 
+INSERT INTO KLANT(voornaam, achternaam, geboortedatum, adres, Plaats_plaatsid)
+VALUES ('Joeri','Verlooy', PARSEDATETIME('17-01-1991','dd-MM-yyyy'), 'Kleinhoefstraat 4', 4);
+
+INSERT INTO KLANT(voornaam, achternaam, geboortedatum, adres, Plaats_plaatsid)
+VALUES ('Klaas','Vandoorne', PARSEDATETIME('29-05-1991','dd-MM-yyyy'), 'Rode 28', 3);
+
 --GEBRUIKER
 CREATE TABLE IF NOT EXISTS GEBRUIKER(
     USERNAME NVARCHAR(50) NOT NULL,
@@ -156,13 +165,18 @@ CREATE TABLE IF NOT EXISTS GEBRUIKER(
     PRIMARY KEY (USERNAME)
 );
 
---beheerder aanmaken
+--beheerders aanmaken
 INSERT INTO GEBRUIKER(username, password, autoriteit_autoriteitid, klant_klantid, enabled)
 VALUES('r0607003@student.thomasmore.be', 'pass', 2, 1, TRUE);
 
---gewone gebruiker (m.a.w. "klant" aanmaken)
 INSERT INTO GEBRUIKER(username, password, autoriteit_autoriteitid, klant_klantid, enabled)
 VALUES('joskevermeulen@gmail.com', 'pass', 1, 2, TRUE);
+
+INSERT INTO GEBRUIKER(username, password, autoriteit_autoriteitid, klant_klantid, enabled)
+VALUES('joeri.verlooy@thomasmore.be', 'pass', 2, 3, TRUE);
+
+INSERT INTO GEBRUIKER(username, password, autoriteit_autoriteitid, klant_klantid, enabled)
+VALUES('kvd@hotmail.com', 'pass', 1, 4, TRUE);
 
 
 --PRODUCT
@@ -213,9 +227,18 @@ CREATE TABLE IF NOT EXISTS BESTELLING(
     primary key (bestellingid)
 );
 
---Joske Vermeulen heeft een bestelling geplaatst en betaald
+--bestellingen aanmaken
 INSERT INTO BESTELLING(klant_klantid, bestellingdatum, bestelling_status_bestellingstatusid)
-VALUES(1, PARSEDATETIME('29-12-2020','dd-MM-yyyy'), 1);
+VALUES(2, PARSEDATETIME('29-12-2020','dd-MM-yyyy'), 3);
+
+INSERT INTO BESTELLING(klant_klantid, bestellingdatum, bestelling_status_bestellingstatusid)
+VALUES(1, PARSEDATETIME('30-12-2020','dd-MM-yyyy'), 3);
+
+INSERT INTO BESTELLING(klant_klantid, bestellingdatum, bestelling_status_bestellingstatusid)
+VALUES(3, PARSEDATETIME('30-12-2020','dd-MM-yyyy'), 3);
+
+INSERT INTO BESTELLING(klant_klantid, bestellingdatum, bestelling_status_bestellingstatusid)
+VALUES(3, PARSEDATETIME('10-01-2020','dd-MM-yyyy'), 2);
 
 --BESTELLING_PRODUCT
 CREATE TABLE IF NOT EXISTS BESTELLING_PRODUCT(
@@ -225,10 +248,22 @@ CREATE TABLE IF NOT EXISTS BESTELLING_PRODUCT(
     huurverkoop BIT NOT NULL,
     aantal INT NOT NULL,
     einddatum DATE NULL,
-    productbijklant BIT NULL,
+    productbijklant BIT NOT NULL,
     PRIMARY KEY (bestellingproductid)
 );
 
---Joske Vermeulen heeft met die bestelling 1 monopoly gehuurd (huurverkoop: 0 is huur, 1 is verkoop / productbijklant: 0 is neen, 1 is ja )
+--bestellingproducten aanmaken
 INSERT INTO BESTELLING_PRODUCT(bestelling_bestellingid, product_productid, huurverkoop, aantal, einddatum, productbijklant)
-VALUES ( 1, 1, 0, 1, PARSEDATETIME('12-01-2020','dd-MM-yyyy'), 0);
+VALUES ( 1, 1, FALSE, 1, PARSEDATETIME('12-01-2020','dd-MM-yyyy'), TRUE);
+
+INSERT INTO BESTELLING_PRODUCT(bestelling_bestellingid, product_productid, huurverkoop, aantal, productbijklant)
+VALUES ( 2, 2, TRUE, 3, TRUE);
+
+INSERT INTO BESTELLING_PRODUCT(bestelling_bestellingid, product_productid, huurverkoop, aantal, einddatum, productbijklant)
+VALUES ( 2, 4, FALSE, 1, PARSEDATETIME('13-01-2020','dd-MM-yyyy'), FALSE);
+
+INSERT INTO BESTELLING_PRODUCT(bestelling_bestellingid, product_productid, huurverkoop, aantal, einddatum, productbijklant)
+VALUES ( 3, 3, TRUE, 1, TRUE);
+
+INSERT INTO BESTELLING_PRODUCT(bestelling_bestellingid, product_productid, huurverkoop, aantal, einddatum, productbijklant)
+VALUES ( 4, 5, TRUE, 1, TRUE);
