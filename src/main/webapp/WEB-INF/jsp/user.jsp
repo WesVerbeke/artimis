@@ -42,6 +42,7 @@
 <!-- Page Content -->
 <div class="container">
     <h1 class="mt-4">Welkom Klant</h1>
+    <p><a href="/logout">Logout</a></p>
 </div>
 <!-- /.container -->
 <footer class="footer mt-auto py-3 bg-light position-absolute: fixed-bottom">

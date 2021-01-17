@@ -2,9 +2,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%--
 <html>
---%>
-<html xmlns:th="http://www.thymeleaf.org">
 <head>
+--%>
+<html xmlns:th="https://www.thymeleaf.org">
+<head th:include="layout :: head(title=~{::title},links=~{})">
     <title>The Atrimis Project: Login</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -58,6 +59,7 @@
     <h1 class="mt-4">Inloggen</h1>
 
     <%-- formulier om in te loggen --%>
+<%--
     <form name="inlogformulier" th:action="@{/login}" method="post">
         <fieldset>
             <legend>Login a.u.b.</legend>
@@ -76,6 +78,45 @@
             </div>
         </fieldset>
     </form>
+--%>
+<%--
+    <form method="POST" action="/login" class="form-signin">
+        <h2 class="form-heading">Log in</h2>
+
+        <div class="form-group ">
+            <span></span>
+            <input name="username" type="text" class="form-control" placeholder="E-mail"
+                   autofocus="true"/>
+            <input name="password" type="password" class="form-control" placeholder="Wachtwoord"/>
+            <span></span>
+
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Log In</button>
+        </div>
+    </form>
+--%>
+    <body th:include="layout :: body" th:with="content=~{::content}">
+    <div th:fragment="content">
+        <form name="f" th:action="@{/login}" method="post">
+            <fieldset>
+                <legend>Please Login</legend>
+                <div th:if="${param.error}" class="alert alert-error">
+                    Invalid username and password.
+                </div>
+                <div th:if="${param.logout}" class="alert alert-success">
+                    You have been logged out.
+                </div>
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username"/>
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password"/>
+                <div class="form-actions">
+                    <button type="submit" class="btn">Log in</button>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+    </body>
+    </html>
 
     <p>Ben je nog geen klant? Registreer eerst voor je een bestelling plaatst.</p>
     <p>Login.</p>

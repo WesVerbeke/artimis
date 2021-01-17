@@ -1,9 +1,12 @@
-<%@ page import="java.util.List" %>
-<%@ page import="be.thomasmore.graduaten.artimis.model.Product" %>
+<%@ page import="be.thomasmore.graduaten.artimis.model.Klant" %>
+<%@ page import="java.text.DateFormat" %>
+<%@ page import="java.text.SimpleDateFormat" %>
+<%@ page import="java.util.Date" %>
+<%@ page import="be.thomasmore.graduaten.artimis.model.Gebruiker" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>The Artimis Project: Productdetail</title>
+    <title>The Artimis Project: Klantdetails</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
@@ -33,11 +36,6 @@
             padding-bottom: 40px;
             padding-top: 20px;
             vertical-align: bottom;
-        }
-        .afbeeldingproduct {
-            pointer-events: none;
-            width: 230px;
-            height: 230px;
         }
         .knop {
             border: 0px !important;
@@ -69,7 +67,7 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="/kopen">Back
+                    <a class="nav-link" href="/gebruikers">Back
                         <span class="sr-only">(current)</span>
                     </a>
                 </li>
@@ -80,21 +78,43 @@
 
 <!-- Page Content -->
 <div class="container">
-    <%-- Weergave geselecteerde product --%>
+    <%-- Weergave geselecteerde klant --%>
     <%
-        Product product = (Product) request.getAttribute("product");
-        out.print("<h1 class=\"mt-4\">" + product.getProductnaam() + "</h1>\n");
-        out.print("<table class=\"tabel\">");
-            out.print(
-                    "<tr>" + "<td>" + "<img src=\"" + product.getAfbeelding() + "\" alt=\"" + product.getProductnaam() + "\" class=\"afbeeldingproduct\">"+ "</td>" +
-                        "<td class=\"tekstinhoud\">" + product.getProductbeschrijving() + "</td></tr>" +
-                    "<tr><td class=\"opsomming\"><i>Spelers:&#8194;</i><b>" + product.getAantalspelers().toString() + "</b></td><tr>" +
-                    "<tr><td class=\"opsomming\"><i>Min. leeftijd:&#8194;</i><b>" + product.getMinimumleeftijd().toString() + "</b></td><tr>" +
-                    "<tr><td class=\"opsomming\"><i>Taal:&#8194;</i><b>" + product.getTaal().getTaalnaam() + "</b></td><tr>" +
-                    "<tr><td class=\"opsomming\"><i>Uitgever:&#8194;</i><b>" + product.getUitgever().getUitgevernaam() + "</b></td><tr>" +
-                    "<tr>" + "<td class=\"prijs\">" + "&euro; " + product.getPrijs() + "<button type=\"button\" class=\"knop\">kopen</button></td>" +
-                        "<td class=\"prijs\">" + "&euro; " + product.getPrijshuur() + "<button type=\"button\" class=\"knop\">huren</button></td></tr>"
-            );
+        Gebruiker gebruiker = (Gebruiker) request.getAttribute("gebruiker");
+        Klant klant= gebruiker.getKlant();
+
+        Date date = klant.getGeboortedatum();
+        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        String geboortedatum = dateFormat.format(date);
+
+        String status;
+        if (gebruiker.getEnabled().equals(true))
+        {
+            status = "Ja";
+        }
+        else
+        {
+            status = "Neen";
+        }
+        String admin;
+        if (gebruiker.getAutoriteit().getAuthority().equals("ROLE_ADMIN"))
+        {
+            admin = "Ja";
+        }
+        else{
+            admin = "Neen";
+        }
+
+
+        out.print("<h1 class=\"mt-4\">" + klant.getVoornaam() + " " + klant.getAchternaam() + "</h1>\n");
+        out.print(
+                "<p><b>ID:&#8194;</b>" + klant.getKlantid().toString() + "</p>" +
+                "<p><b>Geboortedatum:&#8194;</b>" + geboortedatum + "</p>" +
+                "<p><b>Adres:&#8194;</b>" + klant.getAdres() + ", " + klant.getPlaats().getPostcode() + " " + klant.getPlaats().getGemeente() + "</p>" +
+                "<p><b>E-mail:&#8194;</b>" + gebruiker.getUsername() + "</p>" +
+                "<p><b>Actief:&#8194;</b>" + status + "</p>" +
+                "<p><b>Admin:&#8194;</b>" + admin + "</p>"
+        );
         out.print("</table>");
     %>
 

@@ -1,9 +1,9 @@
 <%@ page import="java.util.List" %>
-<%@ page import="be.thomasmore.graduaten.artimis.model.Product" %>
+<%@ page import="be.thomasmore.graduaten.artimis.model.Gebruiker" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>The Artimis Project: Productdetail</title>
+    <title>The Artimis Project: Overzicht Gebruikers</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
@@ -15,43 +15,13 @@
             margin-bottom: 17px;
             float: left;
         }
-        .prijs {
-            color: #993300;
-            white-space: nowrap;
-            font-size: 20px;
-            font-weight: bold;
-            padding-top: 5px;
-            padding-left: 20px;
-            Margin-top: 20px;
-        }
-        .tabel {
-            border-collapse: collapse;
-        }
-        .tekstinhoud {
-            padding-left: 20px;
-            padding-right: 30px;
-            padding-bottom: 40px;
-            padding-top: 20px;
-            vertical-align: bottom;
-        }
-        .afbeeldingproduct {
-            pointer-events: none;
-            width: 230px;
-            height: 230px;
-        }
         .knop {
             border: 0px !important;
             color: #e5ddd3 !important;
             background-color: #494540 !important;
-            width: 70px !important;
+            width: 60px !important;
             padding-top: 5px !important;
             padding-bottom: 5px !important;
-            Margin-left: 20px;
-            Margin-top: 20px;
-        }
-
-        .opsomming {
-            padding-left: 20px;
         }
     </style>
 </head>
@@ -69,7 +39,7 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="/kopen">Back
+                    <a class="nav-link" href="/admin">Back
                         <span class="sr-only">(current)</span>
                     </a>
                 </li>
@@ -80,21 +50,45 @@
 
 <!-- Page Content -->
 <div class="container">
-    <%-- Weergave geselecteerde product --%>
+    <h1 class="mt-4">Overzicht Gebruikers</h1>
+
+    <%-- Tabel met gebruikers --%>
     <%
-        Product product = (Product) request.getAttribute("product");
-        out.print("<h1 class=\"mt-4\">" + product.getProductnaam() + "</h1>\n");
-        out.print("<table class=\"tabel\">");
+        List<Gebruiker> gebruikers = (List<Gebruiker>) request.getAttribute("gebruikers");
+        out.print("<table border='1'>");
+        out.print("<tr><th>ID</th><th>Naam</th><th>E-mail</th><th>Admin</th><th>Actief</th><th>Bekijk</th></tr>");
+        for (Gebruiker gebruiker: gebruikers) {
+            String linkdetail = "/klantdetail?id=" + gebruiker.getKlant().getKlantid().toString();
+            String status;
+            if (gebruiker.getEnabled().equals(true))
+            {
+                status = "Ja";
+            }
+            else
+            {
+                status = "Neen";
+            }
+            String admin;
+            if (gebruiker.getAutoriteit().getAuthority().equals("ROLE_ADMIN"))
+            {
+                admin = "Ja";
+            }
+            else{
+                admin = "Neen";
+            }
+
+            //tabel afdrukken
             out.print(
-                    "<tr>" + "<td>" + "<img src=\"" + product.getAfbeelding() + "\" alt=\"" + product.getProductnaam() + "\" class=\"afbeeldingproduct\">"+ "</td>" +
-                        "<td class=\"tekstinhoud\">" + product.getProductbeschrijving() + "</td></tr>" +
-                    "<tr><td class=\"opsomming\"><i>Spelers:&#8194;</i><b>" + product.getAantalspelers().toString() + "</b></td><tr>" +
-                    "<tr><td class=\"opsomming\"><i>Min. leeftijd:&#8194;</i><b>" + product.getMinimumleeftijd().toString() + "</b></td><tr>" +
-                    "<tr><td class=\"opsomming\"><i>Taal:&#8194;</i><b>" + product.getTaal().getTaalnaam() + "</b></td><tr>" +
-                    "<tr><td class=\"opsomming\"><i>Uitgever:&#8194;</i><b>" + product.getUitgever().getUitgevernaam() + "</b></td><tr>" +
-                    "<tr>" + "<td class=\"prijs\">" + "&euro; " + product.getPrijs() + "<button type=\"button\" class=\"knop\">kopen</button></td>" +
-                        "<td class=\"prijs\">" + "&euro; " + product.getPrijshuur() + "<button type=\"button\" class=\"knop\">huren</button></td></tr>"
+                    "<tr>" +
+                            "<td>" + gebruiker.getKlant().getKlantid().toString() + "</td>" +
+                            "<td>" + gebruiker.getKlant().getVoornaam() + " " + gebruiker.getKlant().getAchternaam() + "</td>" +
+                            "<td style=\"font-size: 12px\">" + gebruiker.getUsername() + "</td>" +
+                            "<td>" + admin + "</td>" +
+                            "<td>" + status + "</td>" +
+                            "<td><a href=" + linkdetail + "><button type=\"button\" class=\"knop\">details</button></a></td>" +
+                            "</tr>"
             );
+        }
         out.print("</table>");
     %>
 

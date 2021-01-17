@@ -51,14 +51,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/admin", "/h2-console").hasRole("ADMIN")
                 .antMatchers("/user").hasAnyRole("USER", "ADMIN")
-                .antMatchers("/", "/kopen", "/productdetail", "/contact", "/privacy", "/register").permitAll()
+                .antMatchers("/", "/kopen", "/productdetail", "/contact", "/privacy", "/register", "/gebruikers").permitAll()
                 //.anyRequest().authenticated()
                 .and()
-                .formLogin();
+                .formLogin()
                 //.and()
                 //.httpBasic();
 
                 //.loginPage("/login") //eigen loginpagina gebruiken
                 //.permitAll(); //iedereen moet hier toegang toe krijgen
+                .defaultSuccessUrl("/user");
     }
 }
