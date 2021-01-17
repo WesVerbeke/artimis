@@ -262,8 +262,8 @@ VALUES ( 2, 2, TRUE, 3, TRUE);
 INSERT INTO BESTELLING_PRODUCT(bestelling_bestellingid, product_productid, huurverkoop, aantal, einddatum, productbijklant)
 VALUES ( 2, 4, FALSE, 1, PARSEDATETIME('13-01-2020','dd-MM-yyyy'), FALSE);
 
-INSERT INTO BESTELLING_PRODUCT(bestelling_bestellingid, product_productid, huurverkoop, aantal, einddatum, productbijklant)
+INSERT INTO BESTELLING_PRODUCT(bestelling_bestellingid, product_productid, huurverkoop, aantal, productbijklant)
 VALUES ( 3, 3, TRUE, 1, TRUE);
 
-INSERT INTO BESTELLING_PRODUCT(bestelling_bestellingid, product_productid, huurverkoop, aantal, einddatum, productbijklant)
+INSERT INTO BESTELLING_PRODUCT(bestelling_bestellingid, product_productid, huurverkoop, aantal, productbijklant)
 VALUES ( 4, 5, TRUE, 1, TRUE);

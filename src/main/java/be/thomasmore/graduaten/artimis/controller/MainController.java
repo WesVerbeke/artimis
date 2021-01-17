@@ -1,12 +1,8 @@
 package be.thomasmore.graduaten.artimis.controller;
 
 
-import be.thomasmore.graduaten.artimis.model.Gebruiker;
-import be.thomasmore.graduaten.artimis.model.Klant;
-import be.thomasmore.graduaten.artimis.model.Product;
-import be.thomasmore.graduaten.artimis.service.GebruikerService;
-import be.thomasmore.graduaten.artimis.service.KlantService;
-import be.thomasmore.graduaten.artimis.service.ProductService;
+import be.thomasmore.graduaten.artimis.model.*;
+import be.thomasmore.graduaten.artimis.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,6 +23,9 @@ public class MainController {
 
     @Autowired
     KlantService klantService;
+
+    @Autowired
+    BestellingProductService bestellingProductService;
 
     @RequestMapping("/")
     public String index() { return "index"; }
@@ -74,6 +73,13 @@ public class MainController {
         List<Gebruiker> gebruikers = gebruikerService.getGebruikers();
         model.addAttribute("gebruikers", gebruikers);
         return "gebruikers";
+    }
+
+    @RequestMapping("/bestellingen")
+    public String navigateBestellingen(Model model) {
+        List<BestellingProduct> bestellingen = bestellingProductService.getBestellingProducten();
+        model.addAttribute("bestellingen", bestellingen);
+        return "bestellingen";
     }
 
     @RequestMapping("/klantdetail")
