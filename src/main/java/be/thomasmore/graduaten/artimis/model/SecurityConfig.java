@@ -10,6 +10,8 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
+import org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler;
 
 import javax.sql.DataSource;
 
@@ -45,6 +47,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         //return new BCryptPasswordEncoder(); //dit moet je normaal gezien doen voor encryption
     }
 
+    @Bean
+    public AuthenticationSuccessHandler myAuthenticationSuccessHandler(){
+        return new MySimpleUrlAuthenticationSuccessHandler();
+    }
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
@@ -60,6 +67,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
                 //.loginPage("/login") //eigen loginpagina gebruiken
                 //.permitAll(); //iedereen moet hier toegang toe krijgen
-                .defaultSuccessUrl("/user");
+                //.defaultSuccessUrl("/user", true)
+                .successHandler(myAuthenticationSuccessHandler());
     }
 }
